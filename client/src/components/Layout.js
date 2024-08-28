@@ -19,8 +19,8 @@ const Layout = ({ children }) => {
 
     return (
         <div className="background-container" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-            <AppBar position="static" sx={{ height: 90, backgroundColor: 'black' }}>
-                <Toolbar sx={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+            <AppBar position="static" sx={{ height: 100, backgroundColor: 'black' }}>
+                <Toolbar sx={{ display: 'flex', alignItems: 'center', height: '100%' , width: '100%'}}>
                     <IconButton edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer(true)} sx={{ mr: 4 }}>
                         <MenuIcon />
                     </IconButton>
@@ -68,28 +68,30 @@ const Layout = ({ children }) => {
                     color: 'white',
                     padding: 2,
                     textAlign: 'center',
+                    position: 'static',
+                    height: '100%' ,
                     width: '100%',
                 }}
             >
-                <Grid container spacing={2} alignItems="center" justifyContent="center">
-                    <Grid item xs={3} sx={{ display: 'flex', justifyContent: 'center' }}>
+                <Grid container spacing={2} alignItems="center" justifyContent="center" sx={{ height: 270 }}>
+                    <Grid item xs={2} sx={{ display: 'flex' }}>
                         <Box component="img" src={logo1} alt="Gom Shabu" sx={{ height: 100 }} />
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid item xs={2}>
                         <Typography variant="h6">Contact us</Typography>
                         <Typography variant="body2">gomshabu@gmail.com</Typography>
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid item xs={2}>
                         <Typography variant="h6">Annandale</Typography>
-                        <Typography variant="body2">4355 John Marr Dr, Annandale, VA 22003</Typography>
+                        <Typography variant="body2">4355 John Marr Dr <br/> Annandale, VA 22003</Typography>
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid item xs={2}>
                         <Typography variant="h6">Centreville</Typography>
-                        <Typography variant="body2">13840 Braddock Rd F, Centreville, VA 20121</Typography>
+                        <Typography variant="body2">13840 Braddock Rd  <br/> Centreville, VA 20121</Typography>
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid item xs={2}>
                         <Typography variant="h6">Check us out</Typography>
-                        <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
+                        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                             <IconButton
                                 component="a"
                                 href="https://www.instagram.com/gomshabushabu/"
@@ -109,9 +111,11 @@ const Layout = ({ children }) => {
                                 <Box component="img" src={YelpLogo} alt="Yelp" sx={{ width: 40, height: 40 }} />
                             </IconButton>
                         </Box>
+                    </Grid>
+                    <Grid container spacing={2} alignItems="center" justifyContent="center" sx={{ height: 20 , height: 5 }}>
                         <Box>
-                            <Typography variant="copyright">
-                                &copy; {new Date().getFullYear()} Gom Shabu Annandale. All rights reserved.
+                            <Typography variant="copyright"> 
+                                    &copy; {new Date().getFullYear()} Gom Shabu Annandale. All rights reserved.
                             </Typography>
                         </Box>
                     </Grid>
