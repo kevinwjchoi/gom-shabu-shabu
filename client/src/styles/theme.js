@@ -21,6 +21,38 @@ const gomShabuTheme = createTheme({
       secondary: '#757575', // Medium gray for secondary text
     },
   },
+    typography: {
+      fontFamily: '"Montserrat", "Roboto", "Helvetica", "Arial", sans-serif',
+      h1: {
+        fontWeight: 700, // Bold font weight
+        fontSize: '2rem', // Standard size for h1
+      },
+      h2: {
+        fontWeight: 700, // Bold font weight
+        fontSize: '1.75rem', // Standard size for h2
+      },
+      h4: {
+        fontWeight: 700, // Bold font weight
+        fontSize: '1.5rem', // Standard size for h4
+      },
+      h6: {
+        fontWeight: 700, // Bold font weight
+        fontSize: '1.25rem', // Standard size for h6
+      },
+      body1: {
+        fontWeight: 400, // Normal font weight
+        fontSize: '1rem', // Standard size for body1
+      },
+      body2: {
+        fontWeight: 400, // Normal font weight
+        fontSize: '0.875rem', // Standard size for body2
+      },
+      copyright: {
+        fontWeight: 400, // Normal font weight
+        fontSize: '0.75rem', // Very tiny size for copyright
+        color: '#666', // Optional: A lighter color for subtle text
+      }
+  },
 });
 
 export default gomShabuTheme;
