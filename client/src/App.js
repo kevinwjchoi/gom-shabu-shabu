@@ -1,24 +1,31 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { ThemeProvider } from '@mui/material/styles';
+import Layout from './components/Layout';
+import gomShabuTheme from './styles/theme'
+import Home from './pages/Home';
 import './App.css';
 
-function App() {
+const AppRoutes = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/home" element={<Home />} />
+
+    </Routes>
+  );
+};
+
+function App() {
+
+  return (
+            <ThemeProvider theme={gomShabuTheme}>
+              <Router>
+                  <Layout>
+                    <AppRoutes />
+                  </Layout>
+              </Router>
+            </ThemeProvider>
   );
 }
 
