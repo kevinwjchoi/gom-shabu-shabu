@@ -22,7 +22,7 @@ const gomShabuTheme = createTheme({
     },
   },
     typography: {
-      fontFamily: '"Montserrat", "Roboto", "Helvetica", "Arial", sans-serif',
+      fontFamily: '"Helvetica Neue", "Montserrat", "Roboto", "Helvetica", "Arial", sans-serif',
       h1: {
         fontWeight: 700, // Bold font weight
         fontSize: '2rem', // Standard size for h1
@@ -52,6 +52,17 @@ const gomShabuTheme = createTheme({
         fontSize: '0.75rem', // Very tiny size for copyright
         color: '#666', // Optional: A lighter color for subtle text
       }
+  },
+  components: {
+    MuiToolbar: {
+      styleOverrides: {
+        root: {
+          fontWeight: 700,
+          fontSize: '2rem', // Customize the font size for Toolbar
+          color: '#white'
+        },
+      },
+    },
   },
 });
 
