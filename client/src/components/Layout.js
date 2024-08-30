@@ -6,9 +6,13 @@ import YelpLogo from '../images/yelp.svg';
 import { Link } from 'react-router-dom';
 import '../styles/Layout.css';
 import logo1 from '../images/logo1.jpeg';
+import { useTheme } from '@mui/material/styles';
+
 
 const Layout = ({ children }) => {
     const [drawerOpen, setDrawerOpen] = useState(false);
+    const theme = useTheme();
+
 
     const toggleDrawer = (open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -19,8 +23,8 @@ const Layout = ({ children }) => {
 
     return (
         <div className="background-container" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-            <AppBar position="static" sx={{ height: 100, backgroundColor: 'black' }}>
-                <Toolbar sx={{ display: 'flex', alignItems: 'center', height: '100%' , width: '100%'}}>
+            <AppBar position="static" sx={{ height: 100, backgroundColor: 'black', display: 'flex'}}>
+                <Toolbar sx={{ display: 'flex', alignItems: 'center', height: '100%' , width: '100%' }}>
                     <IconButton edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer(true)} sx={{ mr: 4 }}>
                         <MenuIcon />
                     </IconButton>
@@ -57,7 +61,7 @@ const Layout = ({ children }) => {
                 </List>
             </Drawer>
 
-            <main style={{ padding: '16px 5% 50px 7%' }}>
+            <main style={{ padding: '0px 0% 0px 0%' }}>
                 {children}
             </main>
 
@@ -73,7 +77,7 @@ const Layout = ({ children }) => {
                     width: '100%',
                 }}
             >
-                <Grid container spacing={2} alignItems="center" justifyContent="center" sx={{ height: 270 }}>
+                <Grid container spacing={2} alignItems="center" justifyContent="center" sx={{ height: 250 }}>
                     <Grid item xs={2} sx={{ display: 'flex' }}>
                         <Box component="img" src={logo1} alt="Gom Shabu" sx={{ height: 100 }} />
                     </Grid>
@@ -112,7 +116,7 @@ const Layout = ({ children }) => {
                             </IconButton>
                         </Box>
                     </Grid>
-                    <Grid container spacing={2} alignItems="center" justifyContent="center" sx={{ height: 20 , height: 5 }}>
+                    <Grid container spacing={2} alignItems="center" justifyContent="center" sx={{ height: 20 , height: 5, margin: .1 }}>
                         <Box>
                             <Typography variant="copyright"> 
                                     &copy; {new Date().getFullYear()} Gom Shabu Annandale. All rights reserved.
