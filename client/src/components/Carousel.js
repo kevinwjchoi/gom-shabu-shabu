@@ -4,15 +4,17 @@ import { Box } from '@mui/material';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import gomshabu from '../images/gomshabu.png'
+import interior1 from '../images/Interior1.png'
 import food1 from '../images/food1.jpeg'
 import food2 from '../images/food2.jpeg'
 import food3 from '../images/food3.jpeg'
 import food4 from '../images/food4.jpeg'
 import food5 from '../images/food5.jpeg'
 
+
 const images = [
   gomshabu,
-  food1,
+  interior1,
   food2,
   food3,
   food4,

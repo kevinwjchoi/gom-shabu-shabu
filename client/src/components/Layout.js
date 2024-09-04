@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, Typography, IconButton, Button, Drawer, List, Box, Grid, ListItem, ListItemText } from '@mui/material';
+import { AppBar, Toolbar, Typography, IconButton, Button, Drawer, List, Box, Grid } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import InstagramLogo from '../images/instagram.svg';
 import YelpLogo from '../images/yelp.svg';
 import { Link } from 'react-router-dom';
 import '../styles/Layout.css';
-import logo1 from '../images/logo1.jpeg';
+import gomlogo from '../images/gomlogo.png';
 import { useTheme } from '@mui/material/styles';
-
 
 const Layout = ({ children }) => {
     const [drawerOpen, setDrawerOpen] = useState(false);
     const theme = useTheme();
-
 
     const toggleDrawer = (open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -22,30 +20,31 @@ const Layout = ({ children }) => {
     };
 
     return (
-        <div className="background-container" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-            <AppBar position="static" sx={{ height: 100, backgroundColor: 'black', display: 'flex'}}>
-                <Toolbar sx={{ display: 'flex', alignItems: 'center', height: '100%' , width: '100%' }}>
+        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+            <AppBar position="static" sx={{ height: 100, backgroundColor: 'black' }}>
+                <Toolbar sx={{ display: 'flex', alignItems: 'center', height: '100%' }}>
                     <IconButton edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer(true)} sx={{ mr: 4 }}>
                         <MenuIcon />
                     </IconButton>
                     <Link to="/home" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-                        <Box component="img" src={logo1} alt="Gom Shabu" sx={{ height: 50, mr: 2 }} />
+                        <Box component="img" src={gomlogo} alt="Gom Shabu" sx={{ height: 70, mr: 2 }} />
                     </Link>
-                    <Button color="inherit" component={Link} to="/home">
+                    <Box sx={{ flexGrow: 1 }} />
+                    <Button color="inherit" component={Link} to="/home" sx={{ mr: 5, fontSize: '1rem' }}>
                         Home
                     </Button>
-                    <Button color="inherit" component={Link} to="/about">
+                    <Button color="inherit" component={Link} to="/aboutus" sx={{ mr: 5, fontSize: '1rem' }}>
                         About Us
                     </Button>
-                    <Button color="inherit" component={Link} to="/menu">
+                    <Button color="inherit" component={Link} to="/menu" sx={{ mr: 5, fontSize: '1rem' }}>
                         Menu
                     </Button>
-                    <Button color="inherit" component={Link} to="/locations">
+                    <Button color="inherit" component={Link} to="/locations" sx={{ mr: 5, fontSize: '1rem' }}>
                         Locations
                     </Button>
                 </Toolbar>
             </AppBar>
-            
+
             <Drawer
                 anchor="left"
                 open={drawerOpen}
@@ -61,10 +60,12 @@ const Layout = ({ children }) => {
                 </List>
             </Drawer>
 
-            <main style={{ padding: '0px 0% 0px 0%' }}>
+            {/* Main content area with flex-grow */}
+            <main style={{ flex: 1 }}>
                 {children}
             </main>
 
+            {/* Footer */}
             <Box
                 component="footer"
                 sx={{
@@ -72,14 +73,13 @@ const Layout = ({ children }) => {
                     color: 'white',
                     padding: 2,
                     textAlign: 'center',
-                    position: 'static',
-                    height: '100%' ,
                     width: '100%',
+                    mt: 'auto', // Ensure footer sticks to bottom if content is less
                 }}
             >
-                <Grid container spacing={2} alignItems="center" justifyContent="center" sx={{ height: 250 }}>
+                <Grid container spacing={2} alignItems="center" justifyContent="center">
                     <Grid item xs={2} sx={{ display: 'flex' }}>
-                        <Box component="img" src={logo1} alt="Gom Shabu" sx={{ height: 100 }} />
+                        <Box component="img" src={gomlogo} alt="Gom Shabu" sx={{ height: 100 }} />
                     </Grid>
                     <Grid item xs={2}>
                         <Typography variant="h6">Contact us</Typography>
@@ -87,11 +87,11 @@ const Layout = ({ children }) => {
                     </Grid>
                     <Grid item xs={2}>
                         <Typography variant="h6">Annandale</Typography>
-                        <Typography variant="body2">4355 John Marr Dr <br/> Annandale, VA 22003</Typography>
+                        <Typography variant="body2">4355 John Marr Dr <br /> Annandale, VA 22003</Typography>
                     </Grid>
                     <Grid item xs={2}>
                         <Typography variant="h6">Centreville</Typography>
-                        <Typography variant="body2">13840 Braddock Rd  <br/> Centreville, VA 20121</Typography>
+                        <Typography variant="body2">13840 Braddock Rd <br /> Centreville, VA 20121</Typography>
                     </Grid>
                     <Grid item xs={2}>
                         <Typography variant="h6">Check us out</Typography>
@@ -116,10 +116,10 @@ const Layout = ({ children }) => {
                             </IconButton>
                         </Box>
                     </Grid>
-                    <Grid container spacing={2} alignItems="center" justifyContent="center" sx={{ height: 20 , height: 5, margin: .1 }}>
+                    <Grid container spacing={2} alignItems="center" justifyContent="center" sx={{ mt: 1 }}>
                         <Box>
-                            <Typography variant="copyright"> 
-                                    &copy; {new Date().getFullYear()} Gom Shabu Annandale. All rights reserved.
+                            <Typography variant="caption">
+                                &copy; {new Date().getFullYear()} Gom Shabu Annandale. All rights reserved.
                             </Typography>
                         </Box>
                     </Grid>
