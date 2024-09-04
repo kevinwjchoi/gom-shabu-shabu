@@ -1,31 +1,21 @@
+/* Ensure the main app container is a flexbox */
 .App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full height for the app */
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
+/* Remove min-height: 100vh from App-header */
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  padding: 2rem; /* Adjust padding as needed */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.App-link {
-  color: #FFFFFF;
 }
 
 @keyframes App-logo-spin {
@@ -36,3 +26,164 @@
     transform: rotate(360deg);
   }
 }
+
+.main-content {
+  flex-grow: 1; /* Allow main content to grow */
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  margin-top: auto; 
+}
+
+.fullscreen-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden; /* Hide anything that overflows */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+}
+
+.fullscreen-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover; /* Ensure the image covers the container */
+  background-position: center; /* Center the image */
+  z-index: 1; /* Place the background image below the overlay */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+  z-index: 2; /* Place the overlay above the background image */
+}
+
+.content {
+  position: relative;
+  z-index: 3; /* Ensure content is above the overlay */
+  color: white; /* Text color */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+}
+
+
+.image-container {
+  position: relative; /* Needed for positioning the overlay */
+  width: 100%;
+  height: 100%; /* Adjust as needed */
+  overflow: hidden; /* Hide overflow for a cleaner effect */
+}
+
+/* Styles for the Image */
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the container */
+  display: block;
+}
+
+/* Styles for the Overlay */
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; /* Text color for content inside the overlay */
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease; /* Smooth transition effect */
+}
+
+/* Hover Effect for the Overlay */
+.image-container:hover .image-overlay {
+  opacity: 1; /* Show overlay on hover */
+}
+
+/* Optional: Text inside the overlay */
+.image-overlay-content {
+  text-align: center;
+  padding: 20px;
+}
+
+body {
+  background-color: #000000; /* Use your preferred background color */
+  margin: 0; /* Remove default margins */
+  padding: 0; /* Remove default padding */
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url('./images/gomlogo.png'); /* Path to your logo with a removed background */
+  background-repeat: no-repeat;
+  background-size: 40%; /* Ensure the logo fits within the container */
+  background-position: bottom 90px right 60px; /* Center the logo */
+  z-index: 0; /* Ensure this is behind the content */
+}
+
+/* Ensure content is above the background overlay */
+.content-with-background {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align items to the start of the container */
+  align-items: center;
+  height: 100%;
+  padding-top: 20%; /* Adjust percentage to move content up or down */
+  text-align: center;
+  z-index: 3; /* Ensure content is above the background overlay */
+}
+
+/* Ensure even grid rows and columns */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: minmax(200px, auto);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #222;
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.grid-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+

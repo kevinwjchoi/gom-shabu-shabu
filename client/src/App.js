@@ -4,13 +4,20 @@ import { ThemeProvider } from '@mui/material/styles';
 import Layout from './components/Layout';
 import gomShabuTheme from './styles/theme'
 import Home from './pages/Home';
+import AboutUs from './pages/AboutUs';
+import Menu from './pages/Menu';
+
 import './App.css';
+import './styles/Layout.css'
+
 
 const AppRoutes = () => {
 
   return (
     <Routes>
       <Route path="/home" element={<Home />} />
+      <Route path="/aboutus" element={<AboutUs />} />
+      <Route path="/menu" element={<Menu />} />
 
     </Routes>
   );
