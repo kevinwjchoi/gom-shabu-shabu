@@ -4,6 +4,7 @@ import '../App.css';
 import interior1 from '../images/Interior1.png';
 import food3 from '../images/food3.jpeg';
 import meat1 from '../images/meat1.jpeg';
+import ColorLogo from '../images/gomlogocolor.png'
 
 const AboutUs = () => {
     return (
