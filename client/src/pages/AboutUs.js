@@ -4,7 +4,6 @@ import '../App.css';
 import interior1 from '../images/Interior1.png';
 import food3 from '../images/food3.jpeg';
 import meat1 from '../images/meat1.jpeg';
-import ColorLogo from '../images/gomlogocolor.png'
 
 const AboutUs = () => {
     return (
@@ -86,7 +85,7 @@ const AboutUs = () => {
                                     fontSize: { xs: '1rem', md: '1.25rem' }
                                 }}
                             >
-                                Our menu features an extensive selection of premium meats, fresh vegetables, and a variety of noodles, allowing you to customize your hot pot to perfection. Whether you're a fan of tender beef, succulent pork, or crisp vegetables, we have something to suit every taste.
+                                <strong>Sauces made in-house:</strong> Enjoy our flavorful creations including spicy chili oil, tangy ponzu, and our selected peanut sauce. Don’t miss our special Gom Sauce, available in five heat levels to suit your taste—crafted to enhance your dining experience with bold, authentic flavors.
                             </Typography>
                         </Box>
                     </Box>

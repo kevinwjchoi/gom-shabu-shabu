@@ -35,9 +35,15 @@ const gomShabuTheme = createTheme({
         fontWeight: 700, // Bold font weight
         fontSize: '1.5rem', // Standard size for h4
       },
+      h5: {
+        fontWeight: 700, // Bold font weight
+        fontSize: '1.25rem', // Standard size for h6
+        fontFamily: '"Merriweather", "Georgia", serif',
+      },
       h6: {
         fontWeight: 700, // Bold font weight
         fontSize: '1.25rem', // Standard size for h6
+        fontFamily: '"Times New Roman", "Georgia", serif',
       },
       body1: {
         fontWeight: 400, // Normal font weight

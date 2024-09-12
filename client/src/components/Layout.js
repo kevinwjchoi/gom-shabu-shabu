@@ -83,7 +83,7 @@ const Layout = ({ children }) => {
                     </Grid>
                     <Grid item xs={2}>
                         <Typography variant="h6">Contact us</Typography>
-                        <Typography variant="body2">gomshabu@gmail.com</Typography>
+                        <Typography variant="body2">support@gom-shabu.com</Typography>
                     </Grid>
                     <Grid item xs={2}>
                         <Typography variant="h6">Annandale</Typography>

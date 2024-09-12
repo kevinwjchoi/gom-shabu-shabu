@@ -28,7 +28,7 @@ const MenuPage = () => {
 
         <Box className="content">
           <Typography variant="h1" sx={{ fontSize: { xs: '2rem', md: '3rem' } }}>
-            Mmmm. Damn right that looks good.
+            Mmmm. You know that looks good.
           </Typography>
           <Typography
             variant="body1"
