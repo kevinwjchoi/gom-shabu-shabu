@@ -6,6 +6,7 @@ import gomShabuTheme from './styles/theme'
 import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
 import Menu from './pages/Menu';
+import Location from './pages/Location';
 
 import './App.css';
 import './styles/Layout.css'
@@ -18,6 +19,7 @@ const AppRoutes = () => {
       <Route path="/home" element={<Home />} />
       <Route path="/aboutus" element={<AboutUs />} />
       <Route path="/menu" element={<Menu />} />
+      <Route path="/locations" element={<Location />} />
 
     </Routes>
   );
