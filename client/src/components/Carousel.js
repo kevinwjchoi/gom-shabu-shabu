@@ -1,12 +1,16 @@
 import React from 'react';
 import Slider from 'react-slick';
 import { Box } from '@mui/material';
+
+import '../styles/Carousel.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+
 import interior2 from '../images/Interior2.png';
 import veggie2 from '../images/Veggie2.png';
 import seafood1 from '../images/Seafood1.png';
 import plate3 from '../images/Plate3.png';
+
 
 const images = [
   interior2,
@@ -19,7 +23,7 @@ const Carousel = ({ children }) => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500, // Adjust this value for smoother transitions
+    speed: 1700, // Adjust this value for smoother transitions
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
