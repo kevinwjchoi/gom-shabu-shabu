@@ -1,7 +1,9 @@
+from sqlite3 import IntegrityError
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.orm import validates
 from datetime import time
+
 
 # Initialize SQLAlchemy
 db = SQLAlchemy()
