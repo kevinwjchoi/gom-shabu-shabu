@@ -1,0 +1,7 @@
+.slick-slide {
+    transition: transform 0.5s ease-in-out; /* Smooth transition for slide changes */
+  }
+  
+  .slick-prev, .slick-next {
+    z-index: 1; /* Ensure navigation arrows are above the images */
+  }
