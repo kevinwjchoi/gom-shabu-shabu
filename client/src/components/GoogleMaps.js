@@ -1,46 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { GoogleMap, LoadScript, InfoWindow } from '@react-google-maps/api';
+import React from 'react';
+import { GoogleMap, LoadScript, InfoWindow, Marker } from '@react-google-maps/api';
 
-const restaurantLocation = {
-    lat: 38.8305543,
-    lng: -77.188311
-};
-
-const GoogleMaps = () => {
-  const [restaurantAddress, setRestaurantAddress] = useState('');
-
-  // Async function to fetch the restaurant address
-  const fetchRestaurantAddress = async () => {
-    try {
-      const response = await fetch('/api/gom-shabu-details');
-      const data = await response.json();
-      console.log(data)
-
-      // Check if data contains the expected result
-      if (data.result) {
-        const place = data.result;
-        let address = place.formatted_address;
-
-        // Remove ", USA" from the end of the address
-        address = address.replace(/, USA$/, '');
-
-        setRestaurantAddress(address);
-      } else {
-        console.error('No results found.');
-      }
-    } catch (error) {
-      console.error('Error fetching place data:', error);
-    }
-  };
-
-  // Fetch data when component mounts
-  useEffect(() => {
-    fetchRestaurantAddress();
-  }, []);
-
-  console.log(restaurantAddress)
-  console.log(restaurantLocation)
-
+const GoogleMaps = ({ address, location }) => {
+    const markerOffset = {
+        lat: location.lat - 0.00021, // Offset latitude
+        lng: location.lng // Keep the longitude the same
+      };
   return (
     <div style={{ height: '100vh', width: '100%' }}>
       <LoadScript
@@ -48,16 +13,17 @@ const GoogleMaps = () => {
       >
         <GoogleMap
           mapContainerStyle={{ height: '100%', width: '100%' }}
-          zoom={15}
-          center={restaurantLocation}
+          zoom={18}
+          center={location}
         >
-          <InfoWindow position={restaurantLocation}>
-            <div style={{ fontSize: '16px', color: '#000' }}>
-              <h2>Gom Shabu</h2>
+        <Marker position={markerOffset} />
+          <InfoWindow position={location}>
+            <div style={{ fontSize: '12px', color: '#000000' }}>
+              <h1>Gom Shabu</h1>
               <div>
-                <p>{restaurantAddress || 'Loading address...'}</p>
+                <p>{address || 'Loading address...'}</p>
                 <a
-                  href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(restaurantAddress)}`}
+                  href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ color: '#1a73e8' }}
