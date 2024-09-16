@@ -15,16 +15,55 @@ class PlaceSearch(Resource):
         url = "https://maps.googleapis.com/maps/api/place/textsearch/json"
         params = {
             'query': query,
-            'key': os.getenv('REACT_APP_GOOGLE_MAPS_API_KEY')
+            'key': os.getenv('GOOGLE_MAPS_API_KEY')
         }
         
-        response = requests.get(url, params=params)
-        data = response.json()
+        try:
+            response = requests.get(url, params=params)
+            response.raise_for_status()  # Raise an HTTPError for bad responses
+            data = response.json()
+        except requests.exceptions.HTTPError as http_err:
+            return {'error': f'HTTP error occurred: {http_err}'}, response.status_code
+        except requests.exceptions.RequestException as req_err:
+            return {'error': f'Request error occurred: {req_err}'}, 500
         
         if response.status_code != 200:
             return {'error': 'Failed to retrieve data from Google Maps API'}, response.status_code
 
         return jsonify(data)
+
+class GomShabuSearch(Resource):
+    def get(self):
+        address = "4355 John Marr Dr, Annandale, VA 22003"
+
+        # Ensure you have the correct API key
+        api_key = os.getenv('GOOGLE_MAPS_API_KEY')
+        if not api_key:
+            return {'error': 'API key is missing from environment variables'}, 500
+
+        # Use the Google Maps Geocoding API
+        url = "https://maps.googleapis.com/maps/api/geocode/json"
+        params = {
+            'address': address,
+            'key': api_key
+        }
+
+        try:
+            response = requests.get(url, params=params)
+            response.raise_for_status()  # Raise an HTTPError for bad responses
+            data = response.json()
+        except requests.exceptions.HTTPError as http_err:
+            return {'error': f'HTTP error occurred: {http_err}'}, response.status_code
+        except requests.exceptions.RequestException as req_err:
+            return {'error': f'Request error occurred: {req_err}'}, 500
+
+        # Check if the status is 'OK'
+        if data.get('status') != 'OK':
+            return {'error': f'Error from Google Maps API: {data.get("error_message", "Unknown error")}'}, 400
+
+        return jsonify(data)
+
+
 
 # Reservation Resource
 class ReservationResource(Resource):
