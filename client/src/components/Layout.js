@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, Typography, IconButton, Button, Drawer, List, Box, Grid } from '@mui/material';
+import { AppBar, Toolbar, Typography, IconButton, Button, Drawer, List, ListItem, ListItemText, Box, Grid } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import InstagramLogo from '../images/instagram.svg';
 import YelpLogo from '../images/yelp.svg';
 import { Link } from 'react-router-dom';
 import '../styles/Layout.css';
 import gomlogo from '../images/gomlogo.png';
+import gomlogocolor from '../images/gomlogocolor.png';
+import QRCode from '../images/Gom_Shabu_Full_Menu.png';
 import { useTheme } from '@mui/material/styles';
 
 const Layout = ({ children }) => {
@@ -20,7 +22,7 @@ const Layout = ({ children }) => {
     };
 
     return (
-        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+        <div className="layout-container">
             <AppBar position="static" sx={{ height: 100, backgroundColor: 'black' }}>
                 <Toolbar sx={{ display: 'flex', alignItems: 'center', height: '100%' }}>
                     <IconButton edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer(true)} sx={{ mr: 4 }}>
@@ -51,13 +53,40 @@ const Layout = ({ children }) => {
                 onClose={toggleDrawer(false)}
                 sx={{
                     '& .MuiDrawer-paper': {
-                        width: 270,
+                        width: 180,
+                        backgroundColor: theme.palette.primary.main, // Use theme color for background
                     },
                 }}
             >
-                <List>
-                    {/* Add Drawer Items Here */}
-                </List>
+                <Box
+                    sx={{
+                        padding: 2,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        height: '100%',
+                    }}
+                >
+                    {/* Logo at the top of the drawer */}
+                    <Link to="/home" className="drawer-link" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 10 }}>
+                        <Box component="img" src={gomlogo} alt="Gom Shabu" sx={{ height:100 }} />
+                    </Link>
+
+                    {/* Drawer links */}
+                    <List>
+                        <ListItem button component={Link} to="/home" onClick={toggleDrawer(false)} className="drawer-button">
+                            <ListItemText primary={<span className="drawer-link">Home</span>} />
+                        </ListItem>
+                        <ListItem button component={Link} to="/aboutus" onClick={toggleDrawer(false)} className="drawer-button">
+                            <ListItemText primary={<span className="drawer-link">About Us</span>} />
+                        </ListItem>
+                        <ListItem button component={Link} to="/menu" onClick={toggleDrawer(false)} className="drawer-button">
+                            <ListItemText primary={<span className="drawer-link">Menu</span>} />
+                        </ListItem>
+                        <ListItem button component={Link} to="/locations" onClick={toggleDrawer(false)} className="drawer-button">
+                            <ListItemText primary={<span className="drawer-link">Locations</span>} />
+                        </ListItem>
+                    </List>
+                </Box>
             </Drawer>
 
             {/* Main content area with flex-grow */}
@@ -86,12 +115,11 @@ const Layout = ({ children }) => {
                         <Typography variant="body2">support@gom-shabu.com</Typography>
                     </Grid>
                     <Grid item xs={2}>
-                        <Typography variant="h6">Annandale</Typography>
-                        <Typography variant="body2">4355 John Marr Dr <br /> Annandale, VA 22003</Typography>
+                        <Box component="img" src={QRCode} alt="QR Code" sx={{ width: 100, height: 100, mt: 1 }} />
                     </Grid>
                     <Grid item xs={2}>
-                        <Typography variant="h6">Centreville</Typography>
-                        <Typography variant="body2">13840 Braddock Rd <br /> Centreville, VA 20121</Typography>
+                        <Typography variant="h6">Annandale</Typography>
+                        <Typography variant="body2">4355 John Marr Dr <br /> Annandale, VA 22003</Typography>
                     </Grid>
                     <Grid item xs={2}>
                         <Typography variant="h6">Check us out</Typography>
