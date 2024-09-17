@@ -63,7 +63,22 @@ class GomShabuSearch(Resource):
 
         return jsonify(data)
 
+class GomShabuDetails(Resource):
+    def get(self):
+        place_id = "ChIJcw22CyOzt4kRGgY0IY291mU" 
+        url = "https://maps.googleapis.com/maps/api/place/details/json"
+        params = {
+            'place_id': place_id,
+            'key': os.getenv('GOOGLE_MAPS_API_KEY')
+        }
+        
+        response = requests.get(url, params=params)
+        data = response.json()
+        
+        if response.status_code != 200:
+            return {'error': 'Failed to retrieve data from Google Maps API'}, response.status_code
 
+        return jsonify(data)
 
 # Reservation Resource
 class ReservationResource(Resource):

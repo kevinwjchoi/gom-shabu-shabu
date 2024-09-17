@@ -3,7 +3,7 @@ from flask_restful import Api
 from flask_cors import CORS
 from dotenv import load_dotenv
 from models import db
-from resources import PlaceSearch, GomShabuSearch, ReservationResource, ReservationByIdResource
+from resources import PlaceSearch, GomShabuSearch, GomShabuDetails, ReservationResource, ReservationByIdResource
 import os
 
 # Load environment variables
@@ -24,6 +24,7 @@ CORS(app, resources={r"/api/*": {"origins": "*"}})  # Allow all origins
 # Register API resources
 api.add_resource(PlaceSearch, '/api/place-search', endpoint='api/place-search')
 api.add_resource(GomShabuSearch, '/api/gom-shabu-search', endpoint='api/gom-shabu-search')  # Register GomShabuSearch resource
+api.add_resource(GomShabuDetails, '/api/gom-shabu-details')
 api.add_resource(ReservationResource, '/api/reservations')
 api.add_resource(ReservationByIdResource, '/api/reservations/<int:reservation_id>')
 
