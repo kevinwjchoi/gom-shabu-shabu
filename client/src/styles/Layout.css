@@ -1,6 +1,6 @@
 .drawer-link {
     text-decoration: none;
-    color: black;
+    color: white;
   }
   
   .drawer-link:hover {
@@ -10,7 +10,7 @@
   
   .drawer-link:visited {
     text-decoration: none;
-    color: black;
+    color: white;
   }
   
   .drawer-link:active {

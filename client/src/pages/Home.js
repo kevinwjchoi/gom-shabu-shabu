@@ -1,6 +1,6 @@
 import React from 'react';
 import Carousel from '../components/Carousel';
-import '../App.css';
+import '../App.css'; // Ensure this file imports the CSS
 import { Box, Typography } from '@mui/material';
 import ReservationForm from '../components/ReservationForm';
 
@@ -8,23 +8,25 @@ const Home = () => {
   return (
     <main>
       <Carousel>
-        <Typography className="carousel-title-content"
-        variant="h6"
-        sx={{
-          fontWeight: 100,
-          fontSize: '6rem',
-          color: 'white',
-        }}
+        <Typography
+          className="carousel-title-content fade-in"
+          variant="h6"
+          sx={{
+            fontWeight: 100,
+            fontSize: '6rem',
+            color: 'white',
+          }}
         >
           Gom Shabu
         </Typography>
-        <Typography className="carousel-content"
-        variant="h6"
-        sx={{
-          fontWeight: 100,
-          fontSize: '2.25rem',
-          color: 'white'
-        }}
+        <Typography
+          className="carousel-content fade-in"
+          variant="h6"
+          sx={{
+            fontWeight: 100,
+            fontSize: '2.25rem',
+            color: 'white'
+          }}
         >
           a modern twist to traditional hot pot
         </Typography>

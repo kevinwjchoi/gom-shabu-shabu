@@ -2,7 +2,8 @@ import React from 'react';
 import { Box, Typography, Grid } from '@mui/material';
 import interior4 from '../images/Group1.png'; // This image will be used in the context box
 import outside from '../images/outside.png';
-import location2 from '../images/location2.png';
+import location1 from '../images/location.png';
+import group3 from '../images/Group3.png'
 import GoogleMaps from '../components/GoogleMaps'; // Import the GoogleMaps component
 
 const Location = ({ address, location }) => {
@@ -12,7 +13,7 @@ const Location = ({ address, location }) => {
       <Box className="fullscreen-container" sx={{ position: 'relative' }}>
         <div
           className="fullscreen-background"
-          style={{ backgroundImage: `url(${outside})`, height: '100vh', width: '100%' }}
+          style={{ backgroundImage: `url(${location1})`, height: '100vh', width: '100%' }}
         />
         <div className="overlay" style={{
           position: 'absolute',
@@ -20,7 +21,7 @@ const Location = ({ address, location }) => {
           left: 0,
           width: '100%',
           height: '100%',
-          backgroundColor: 'rgba(0, 0, 0, 0.5)', /* Black overlay with 50% opacity */
+          backgroundColor: 'rgba(0, 0, 0, 0.3)', /* Black overlay with 50% opacity */
           zIndex: 2
         }} />
         
@@ -35,46 +36,46 @@ const Location = ({ address, location }) => {
           height: '100%',
           textAlign: 'center',
         }}>
-          <Typography variant="h1" sx={{ fontSize: { xs: '2rem', md: '3rem' } }}>
-            4355 John Marr Dr
+          <Typography variant="h1" sx={{
+            mt: 2,
+            fontSize: { xs: '3rem', md: '5rem' },
+            fontWeight: 'bold',
+            background: 'linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(200,200,200,1) 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            textShadow: '0 0 8px rgba(255,255,255,0.8), 0 0 16px rgba(255,255,255,0.6), 0 0 24px rgba(255,255,255,0.4)',
+            animation: 'textGlow 2s ease-in-out infinite'
+          }}>
+            NOW OPEN 
           </Typography>
-          <Typography
-            variant="body1"
-            sx={{
-              mt: 2,
-              fontSize: { xs: '1rem', md: '1.25rem' },
-              maxWidth: '700px',
-              textAlign: 'center',
-              lineHeight: 1.7,
-            }}
-          >
-            Come check out Gom Shabu, located in the K Market Plaza in Annandale, VA. Our restaurant offers a delicious array of shabu-shabu dishes, featuring fresh ingredients and rich flavors in a cozy setting. Conveniently situated in the bustling plaza, Gom Shabu is the perfect spot to enjoy a satisfying meal with friends and family. We look forward to welcoming you!
+          <Typography variant="h6">
+            4355 John Marr Dr, Annandale, VA 22003 
           </Typography>
         </Box>
       </Box>
 
       {/* Grid Layout Section */}
-      <Grid container spacing={3} sx={{ mt: 3 }}>
+      <Grid container spacing={3} sx={{ mt: 3, height: '60vh' }}>
         {/* Left Box: Image with context */}
         <Grid item xs={12} md={6}>
           <Box
             sx={{
               position: 'relative',
-              backgroundImage: `url(${interior4})`,
+              backgroundImage: `url(${group3})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
-              height: '50%', // Ensure it takes the full height of the container
+              height: '50%',
               padding: 2,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               color: 'white',
               textAlign: 'left',
-              fontSize: { xs: '1rem', md: '1.2rem' }, // Responsive font size
+              fontSize: { xs: '1rem', md: '1.2rem' },
               fontWeight: 'bold',
               borderRadius: 1,
-              overflow: 'hidden', // Ensure no overflow issues
-              boxSizing: 'border-box' // Include padding in the box's height
+              overflow: 'hidden',
+              boxSizing: 'border-box'
             }}
           >
             <div
@@ -85,12 +86,12 @@ const Location = ({ address, location }) => {
                 left: 0,
                 width: '100%',
                 height: '100%',
-                backgroundColor: 'rgba(0, 0, 0, 0.6)', /* Black overlay with 50% opacity */
+                backgroundColor: 'rgba(0, 0, 0, 0.6)',
                 zIndex: 2
               }}
             />
             <Typography variant="h6" sx={{ position: 'relative', zIndex: 3 }}>
-              <strong style={{fontSize: '2rem'}}>Business hours:</strong> <br />  
+              <strong style={{ fontSize: '2rem' }}>Business Operations:</strong> <br />
               <strong>Monday:</strong> 11:30 AM–10 PM<br />
               <strong>Tuesday:</strong> 11:30 AM–10 PM<br />
               <strong>Wednesday:</strong> 11:30 AM–10 PM<br />
@@ -111,7 +112,7 @@ const Location = ({ address, location }) => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              height: '50%', // Ensure it takes the full height of the container
+              height: '50%',
               borderRadius: 1,
               overflow: 'hidden',
             }}
@@ -120,6 +121,24 @@ const Location = ({ address, location }) => {
           </Box>
         </Grid>
       </Grid>
+
+      {/* Additional Box: Below the Left and Right Boxes */}
+      <Box
+        sx={{
+          mt: 3,
+          padding: 2,
+          backgroundColor: '#f5f5f5',
+          borderRadius: 1,
+          textAlign: 'center',
+        }}
+      >
+        <Typography variant="h5" sx={{ mb: 2 }}>
+          Additional Information
+        </Typography>
+        <Typography variant="body1">
+          Here you can add any additional content, announcements, or information that you'd like to include. This section spans the full width below the map and the business hours section.
+        </Typography>
+      </Box>
     </>
   );
 };
