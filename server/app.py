@@ -3,7 +3,7 @@ from flask_restful import Api
 from flask_cors import CORS
 from dotenv import load_dotenv
 from server.models import db
-from resources import PlaceSearch, GomShabuSearch, GomShabuDetails, ReservationResource, ReservationByIdResource
+from server.resources import PlaceSearch, GomShabuSearch, GomShabuDetails, ReservationResource, ReservationByIdResource
 import os
 
 # Load environment variables
