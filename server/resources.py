@@ -2,7 +2,7 @@ from flask_restful import Resource
 from flask import request, jsonify
 import requests
 from datetime import datetime
-from models import db, Reservation
+from server.models import db, Reservation
 import os
 
 # Google Maps API Resource
