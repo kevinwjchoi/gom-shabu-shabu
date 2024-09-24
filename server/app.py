@@ -2,7 +2,7 @@ from flask import Flask, render_template
 from flask_restful import Api
 from flask_cors import CORS
 from dotenv import load_dotenv
-from models import db
+from server.models import db
 from resources import PlaceSearch, GomShabuSearch, GomShabuDetails, ReservationResource, ReservationByIdResource
 import os
 
