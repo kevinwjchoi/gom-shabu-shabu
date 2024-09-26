@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, send_from_directory
 from flask_restful import Api
 from flask_cors import CORS
 from dotenv import load_dotenv
@@ -10,7 +10,7 @@ import os
 load_dotenv()
 
 # Initialize Flask app
-app = Flask(__name__)
+app = Flask(__name__, static_folder='client/public')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', os.urandom(24).hex())
@@ -28,10 +28,12 @@ api.add_resource(GomShabuDetails, '/api/gom-shabu-details')
 api.add_resource(ReservationResource, '/api/reservations')
 api.add_resource(ReservationByIdResource, '/api/reservations/<int:reservation_id>')
 
-# Basic route for rendering the index.html
 @app.route('/')
 def index():
-    return render_template("index.html")
+    return send_from_directory(app.static_folder, 'index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+
