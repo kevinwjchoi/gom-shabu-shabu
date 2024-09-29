@@ -10,7 +10,7 @@ import os
 load_dotenv()
 
 # Initialize Flask app
-app = Flask(__name__, static_folder='client/build')
+app = Flask(__name__, static_folder='../client/build')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', os.urandom(24).hex())
@@ -30,8 +30,16 @@ api.add_resource(ReservationByIdResource, '/api/reservations/<int:reservation_id
 
 @app.route('/')
 def index():
-    return send_from_directory(app.static_folder, 'index.html')
+    return "Welcome to Gom Shabu!"
 
+# @app.route('/')
+# def serve():
+#     return send_from_directory(app.static_folder, 'index.html')
+
+# # Fallback route for other React routes
+# @app.errorhandler(404)
+# def not_found(e):
+#     return send_from_directory(app.static_folder, 'index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
