@@ -29,17 +29,12 @@ api.add_resource(ReservationResource, '/api/reservations')
 api.add_resource(ReservationByIdResource, '/api/reservations/<int:reservation_id>')
 
 @app.route('/')
-def index():
-    return "Welcome to Gom Shabu!"
+def serve():
+    return send_from_directory(app.static_folder, 'index.html')
 
-# @app.route('/')
-# def serve():
-#     return send_from_directory(app.static_folder, 'index.html')
-
-# # Fallback route for other React routes
-# @app.errorhandler(404)
-# def not_found(e):
-#     return send_from_directory(app.static_folder, 'index.html')
+@app.errorhandler(404)
+def not_found(e):
+    return send_from_directory(app.static_folder, 'index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
