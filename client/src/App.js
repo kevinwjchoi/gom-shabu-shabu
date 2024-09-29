@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 import Layout from './components/Layout';
 import gomShabuTheme from './styles/theme';
@@ -14,6 +14,7 @@ import './styles/Layout.css';
 const AppRoutes = ({ restaurantAddress, restaurantLocation , fetchRestaurantAddress}) => {
   return (
     <Routes>
+      <Route path="/" element={<Navigate to="/home" />} />
       <Route path="/home" element={<Home />} />
       <Route path="/aboutus" element={<AboutUs />} />
       <Route path="/menu" element={<Menu />} />
