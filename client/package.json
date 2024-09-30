@@ -23,7 +23,7 @@
   },
   "scripts": {
     "build": "react-scripts build",
-    "heroku-postbuild": "npm install --ignore-scripts && npm run build",
+    "heroku-postbuild": "cd client && npm install && npm run build",
     "start": "gunicorn server.app:app"
   },
   "eslintConfig": {
