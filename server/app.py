@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from server.models import db
 from server.resources import PlaceSearch, GomShabuSearch, GomShabuDetails, ReservationResource, ReservationByIdResource
 import os
+import logging
 
 # Load environment variables
 load_dotenv()
@@ -28,9 +29,16 @@ api.add_resource(GomShabuDetails, '/api/gom-shabu-details')
 api.add_resource(ReservationResource, '/api/reservations')
 api.add_resource(ReservationByIdResource, '/api/reservations/<int:reservation_id>')
 
+
+
 @app.route('/')
 def serve():
-    return send_from_directory(app.static_folder, 'index.html')
+    try:
+        return send_from_directory(app.static_folder, 'index.html')
+    except FileNotFoundError:
+        logging.error("index.html not found in the static folder")
+        return "File not found", 404
+
 
 @app.route('/<path:path>')
 def static_proxy(path):
