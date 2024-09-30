@@ -22,7 +22,7 @@
     "yup": "^1.4.0"
   },
   "scripts": {
-    "build": "npm run build --prefix client",
+    "build": "npm run build",
     "start": "gunicorn server.app:app"
   },
   "eslintConfig": {
