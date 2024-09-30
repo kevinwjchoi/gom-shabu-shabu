@@ -22,9 +22,8 @@
     "yup": "^1.4.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "heroku-postbuild": "npm run build"
+    "build": "npm run build --prefix client",
+    "start": "gunicorn server.app:app"
   },
   "eslintConfig": {
     "extends": [
