@@ -22,7 +22,8 @@
     "yup": "^1.4.0"
   },
   "scripts": {
-    "build": "npm run build",
+    "build": "react-scripts build",
+    "postinstall": "npm run build",
     "start": "gunicorn server.app:app"
   },
   "eslintConfig": {
