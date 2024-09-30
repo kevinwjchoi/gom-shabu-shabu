@@ -17,7 +17,7 @@ import logging
 load_dotenv()
 
 # Initialize Flask app
-app = Flask(__name__, static_folder='../client/build', static_url_path='')
+app = Flask(__name__, static_folder='client/build/', static_url_path='')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', os.urandom(24).hex())
@@ -26,7 +26,7 @@ app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', os.urandom(24).hex())
 db.init_app(app)
 api = Api(app)
 
-# Enable CORS
+# Enable CORS for the API
 CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 # Register API resources
@@ -36,6 +36,7 @@ api.add_resource(GomShabuDetails, '/api/gom-shabu-details')
 api.add_resource(ReservationResource, '/api/reservations')
 api.add_resource(ReservationByIdResource, '/api/reservations/<int:reservation_id>')
 
+# Serve the React app
 @app.route('/')
 def serve():
     try:
@@ -44,6 +45,7 @@ def serve():
         logging.error("index.html not found in the static folder")
         return "File not found", 404
 
+# Serve static files for React app
 @app.route('/<path:path>')
 def static_proxy(path):
     return send_from_directory(app.static_folder, path)
