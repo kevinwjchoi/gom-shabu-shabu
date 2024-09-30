@@ -35,10 +35,13 @@ api.add_resource(GomShabuDetails, '/api/gom-shabu-details')
 api.add_resource(ReservationResource, '/api/reservations')
 api.add_resource(ReservationByIdResource, '/api/reservations/<int:id>')
 
-# Route for the main page
+@app.route('/<path:path>')
+def send_js(path):
+    return send_from_directory('client/build', path)
+
 @app.route('/')
 def index():
-    return send_from_directory(app.static_folder, 'index.html')
+    return send_from_directory('client/build', 'index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
