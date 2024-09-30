@@ -11,7 +11,6 @@ from server.resources import (
     ReservationByIdResource
 )
 import os
-import logging
 
 # Load environment variables
 load_dotenv()
@@ -34,21 +33,12 @@ api.add_resource(PlaceSearch, '/api/place-search', endpoint='api/place-search')
 api.add_resource(GomShabuSearch, '/api/gom-shabu-search', endpoint='api/gom-shabu-search')
 api.add_resource(GomShabuDetails, '/api/gom-shabu-details')
 api.add_resource(ReservationResource, '/api/reservations')
-api.add_resource(ReservationByIdResource, '/api/reservations/<int:reservation_id>')
+api.add_resource(ReservationByIdResource, '/api/reservations/<int:id>')
 
-# Serve the React app
+# Route for the main page
 @app.route('/')
 def index():
-    try:
-        return send_from_directory(app.static_folder, 'index.html')
-    except FileNotFoundError:
-        logging.error("index.html not found in the static folder")
-        return "File not found", 404
-
-# Serve static files for React app
-@app.route('/<path:path>')
-def static_proxy(path):
-    return send_from_directory(app.static_folder, path)
+    return send_from_directory(app.static_folder, 'index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
