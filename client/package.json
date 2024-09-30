@@ -24,8 +24,7 @@
   "scripts": {
     "build": "react-scripts build",
     "heroku-postbuild": "cd client && npm install && npm run build",
-    "start": "gunicorn server.app:app",
-    "dev": "npm run build && npm run start"
+    "start": "gunicorn ../server.app:app"
   },
   "eslintConfig": {
     "extends": [
