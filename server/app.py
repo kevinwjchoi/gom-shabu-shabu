@@ -11,7 +11,7 @@ import logging
 load_dotenv()
 
 # Initialize Flask app
-app = Flask(__name__, static_folder='build', static_url_path='')
+app = Flask(__name__, static_folder='client/build', static_url_path='')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', os.urandom(24).hex())
