@@ -38,7 +38,7 @@ api.add_resource(ReservationByIdResource, '/api/reservations/<int:reservation_id
 
 # Serve the React app
 @app.route('/')
-def serve():
+def index():
     try:
         return send_from_directory(app.static_folder, 'index.html')
     except FileNotFoundError:
