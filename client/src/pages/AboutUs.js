@@ -17,7 +17,7 @@ const AboutUs = () => {
                 <div className="overlay" />
 
                 <Box className="content">
-                    <Typography variant="h1" sx={{ fontSize: { xs: '2rem', md: '3rem' } }}>
+                    <Typography variant="h1" sx={{ fontSize: { xs: '2rem', md: '3rem' }, textAlign: 'center' }}>
                         ABOUT US
                     </Typography>
                     <Typography 
@@ -25,7 +25,8 @@ const AboutUs = () => {
                         sx={{ 
                             mt: 2, 
                             fontSize: { xs: '1rem', md: '1.25rem' }, 
-                            maxWidth: '700px', 
+                            maxWidth: '90%', // Allow more space on mobile
+                            mx: 'auto', // Center the text
                             textAlign: 'center',
                             lineHeight: 1.7 
                         }}
@@ -43,7 +44,6 @@ const AboutUs = () => {
                     gridTemplateRows: { xs: 'repeat(4, 1fr)', md: 'repeat(2, 1fr)' },
                     gap: 1,
                     padding: 1,
-                    height: 'auto', // Adjusting the height to auto for flexibility
                 }}
             >
                 {/* First Section: What We Offer */}
@@ -54,27 +54,25 @@ const AboutUs = () => {
                         padding: { xs: 2, md: 3 },
                         display: 'flex',
                         flexDirection: 'column',
-                        justifyContent: 'flex-start', // Adjust alignment within the grid cell
+                        justifyContent: 'flex-start',
                         alignItems: 'flex-start',
-                        height: '100vh', // Full height to match other sections
                         backgroundColor: '#222222',
-                        position: 'relative',
-                        paddingTop: '20%', // Adjust this value to move content up or down
                     }}
                 >
                     <div className="background-overlay" />
                     <Box className="content-with-background" sx={{ zIndex: 1 }}>
-                        <Typography variant="h1" sx={{ color: 'white', mt:2, fontSize: { xs: '2rem', md: '3rem' } }}>
+                        <Typography variant="h1" sx={{ color: 'white', mt: 2, fontSize: { xs: '2rem', md: '3rem' } }}>
                             WHAT WE OFFER
                         </Typography>
                         <Box
                             sx={{
                                 backgroundColor: 'rgba(65, 64, 64, 0.5)', 
-                                borderRadius: '12px', // Rounded corners
-                                padding: 3, // Padding inside the box
-                                mt: 4, // Margin top to separate from the heading
-                                maxWidth: '700px', // Maximum width
-                                boxShadow: 2, // Optional shadow for depth
+                                borderRadius: '12px', 
+                                padding: { xs: 2, md: 3 }, // Adjusted padding
+                                mt: 4,
+                                maxWidth: '90%', // Center on mobile
+                                mx: 'auto', // Center the box
+                                boxShadow: 2,
                             }}
                         >
                             <Typography 
@@ -99,21 +97,18 @@ const AboutUs = () => {
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        height: '100%',
-                        position: 'relative',
                         backgroundColor: '#222222',
                     }}
                 >
-                    <Box className="image-container" sx={{ height: '100%', width: '100%' }}>
+                    <Box className="image-container" sx={{ width: '100%', height: 'auto' }}>
                         <Box
                             component="img"
                             src={food3}
                             alt="About Us"
                             sx={{
                                 width: '100%',
-                                height: '100%',
+                                height: 'auto', // Use auto height for responsive scaling
                                 objectFit: 'cover',
-                                display: 'block',
                             }}
                         />
                         <Box className="image-overlay">
@@ -132,21 +127,18 @@ const AboutUs = () => {
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        height: '100%',
-                        position: 'relative',
                         backgroundColor: 'black',
                     }}
                 >
-                    <Box className="image-container" sx={{ height: '100%', width: '100%' }}>
+                    <Box className="image-container" sx={{ width: '100%', height: 'auto' }}>
                         <Box
                             component="img"
                             src={meat1}
                             alt="New Section"
                             sx={{
                                 width: '100%',
-                                height: '100%',
+                                height: 'auto',
                                 objectFit: 'cover',
-                                display: 'block',
                             }}
                         />
                         <Box className="image-overlay">
@@ -155,8 +147,8 @@ const AboutUs = () => {
                                 sx={{ color: 'white', textAlign: 'center', 
                                 mt: 2, 
                                 fontSize: { xs: '1rem', md: '1.25rem' },
-                                paddingLeft: { xs: '2rem', md: '3rem' }, 
-                                paddingRight: { xs: '2rem', md: '3rem' } }}>
+                                paddingX: { xs: '1rem', md: '3rem' }, // Adjusted padding
+                                }}>
                                 Our meats are thinly sliced to order, ensuring peak freshness and tenderness with every dish. Each slice is expertly cut for consistent quality and flavor.
                             </Typography>
                         </Box>
@@ -173,8 +165,6 @@ const AboutUs = () => {
                         flexDirection: 'column',
                         justifyContent: 'center',
                         alignItems: 'flex-start',
-                        height: '100vh',
-                        position: 'relative',
                         backgroundColor: '#222222',
                     }}
                 >
@@ -186,11 +176,12 @@ const AboutUs = () => {
                         <Box
                             sx={{
                                 backgroundColor: 'rgba(65, 64, 64, 0.5)', 
-                                borderRadius: '12px', // Rounded corners
-                                padding: 3, // Padding inside the box
-                                mt: 4, // Margin top to separate from the heading
-                                maxWidth: '700px', // Maximum width
-                                boxShadow: 2, // Optional shadow for depth
+                                borderRadius: '12px', 
+                                padding: { xs: 2, md: 3 }, // Adjusted padding
+                                mt: 4,
+                                maxWidth: '90%', // Center on mobile
+                                mx: 'auto', // Center the box
+                                boxShadow: 2,
                             }}
                         >
                             <Typography 
