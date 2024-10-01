@@ -2,7 +2,6 @@ import React from 'react';
 import Carousel from '../components/Carousel';
 import '../App.css'; // Ensure this file imports the CSS
 import { Box, Typography } from '@mui/material';
-// import ReservationForm from '../components/ReservationForm';
 
 const Home = () => {
   return (
@@ -13,7 +12,7 @@ const Home = () => {
           variant="h6"
           sx={{
             fontWeight: 100,
-            fontSize: '6rem',
+            fontSize: { xs: '3rem', md: '6rem' }, // Responsive font size
             color: 'white',
           }}
         >
@@ -24,7 +23,7 @@ const Home = () => {
           variant="h6"
           sx={{
             fontWeight: 100,
-            fontSize: '2.25rem',
+            fontSize: { xs: '1.5rem', md: '2.25rem' }, // Responsive font size
             color: 'white'
           }}
         >
@@ -34,11 +33,12 @@ const Home = () => {
 
       <Box
         sx={{
-          padding: 8,
-          backgroundColor: '#4f5359', // Optional: Background color to differentiate the box
-          margin: '0px auto',
-          maxWidth: '100%', // Optional: Maximum width for readability
-          justifyContent: 'center',
+          padding: { xs: 4, md: 8 }, // Responsive padding
+          backgroundColor: '#4f5359',
+          margin: '0 auto',
+          maxWidth: '100%',
+          display: 'flex', // Use flexbox for centering
+          flexDirection: 'column',
           alignItems: 'center',
         }}
       >
@@ -46,8 +46,9 @@ const Home = () => {
           variant="h5"
           sx={{
             fontWeight: 300,
-            fontSize: '3rem',
+            fontSize: { xs: '2rem', md: '3rem' }, // Responsive font size
             color: 'white',
+            textAlign: 'center', // Center text on small screens
           }}
         >
           A JOURNEY INTO KOREAN HOT POT DELIGHT
@@ -56,8 +57,10 @@ const Home = () => {
           variant="h4"
           sx={{
             fontWeight: 200,
-            fontSize: '1.25rem',
-            color: 'white'
+            fontSize: { xs: '1rem', md: '1.25rem' }, // Responsive font size
+            color: 'white',
+            textAlign: 'center', // Center text on small screens
+            paddingTop: 2, // Add some spacing
           }}
         >
           Our menu features an extensive selection of premium meats, fresh vegetables, and a variety of noodles, allowing you to customize your hot pot to perfection. Whether you're a fan of tender beef, succulent pork, or fresh seafood, we have something to suit every taste.
@@ -66,14 +69,16 @@ const Home = () => {
 
       <Box
         sx={{
-          padding: 10,
+          padding: { xs: 4, md: 10 }, // Responsive padding
           backgroundColor: 'white',
-          margin: '0px auto',
+          margin: '0 auto',
           maxWidth: '100%',
+          display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
         }}
       >
+        {/* Additional content can be added here */}
       </Box>
     </main>
   );
