@@ -2,7 +2,7 @@ import React from 'react';
 import Carousel from '../components/Carousel';
 import '../App.css'; // Ensure this file imports the CSS
 import { Box, Typography } from '@mui/material';
-import ReservationForm from '../components/ReservationForm';
+// import ReservationForm from '../components/ReservationForm';
 
 const Home = () => {
   return (
@@ -74,7 +74,6 @@ const Home = () => {
           alignItems: 'center',
         }}
       >
-        <ReservationForm />
       </Box>
     </main>
   );
