@@ -43,14 +43,22 @@ api.add_resource(GomShabuDetails, '/api/gom-shabu-details')
 api.add_resource(ReservationResource, '/api/reservations')
 api.add_resource(ReservationByIdResource, '/api/reservations/<int:id>')
 
-@app.route('/')
-def sendjs(path):
-    logger.debug(f"Serving static file: {path}")
-    return send_from_directory('../client/build', path)
+@app.route('/<path:path>', methods=['GET'])
+def send_js(path):
+    try:
+        return send_from_directory(app.static_folder, path)
+    except Exception as e:
+        app.logger.error(f"Error serving static file '{path}': {e}")
+        return "File not found", 404
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def index():
-    logger.debug("Serving index.html")
-    return send_from_directory('../client/build', 'index.html')
+    try:
+        return send_from_directory(app.static_folder, 'index.html')
+    except Exception as e:
+        app.logger.error(f"Error serving index.html: {e}")
+        return "File not found", 404
+
+
 if __name__ == '__main__':
     app.run(debug=True)
