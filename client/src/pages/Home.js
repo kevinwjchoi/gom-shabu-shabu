@@ -66,20 +66,6 @@ const Home = () => {
           Our menu features an extensive selection of premium meats, fresh vegetables, and a variety of noodles, allowing you to customize your hot pot to perfection. Whether you're a fan of tender beef, succulent pork, or fresh seafood, we have something to suit every taste.
         </Typography>
       </Box>
-
-      <Box
-        sx={{
-          padding: { xs: 4, md: 10 }, // Responsive padding
-          backgroundColor: 'white',
-          margin: '0 auto',
-          maxWidth: '100%',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        {/* Additional content can be added here */}
-      </Box>
     </main>
   );
 }
