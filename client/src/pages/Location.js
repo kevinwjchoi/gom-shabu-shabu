@@ -133,10 +133,10 @@ const Location = ({ address, location }) => {
         }}
       >
         <Typography variant="h5" sx={{ mb: 2 }}>
-          Additional Information
+          Call us to make reservations
         </Typography>
         <Typography variant="body1">
-          Here you can add any additional content, announcements, or information that you'd like to include. This section spans the full width below the map and the business hours section.
+          Make sure to provide us with: Name, Date, Time, # of Guests, and Phone Number
         </Typography>
       </Box>
     </>
