@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
-import { Box } from '@mui/material';
-
+import { Box, CircularProgress } from '@mui/material';
 import '../styles/Carousel.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -11,7 +10,6 @@ import veggie2 from '../images/Veggie2.png';
 import seafood1 from '../images/Seafood1.png';
 import plate3 from '../images/Plate3.png';
 
-
 const images = [
   interior2,
   plate3,
@@ -19,15 +17,42 @@ const images = [
   veggie2,
 ];
 
-const Carousel = ({ children }) => {
+const Carousel = ({ children, onLoad }) => {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  const handleImageLoad = () => {
+    setImagesLoaded(true);
+    if (onLoad) onLoad(); // Notify parent when images are loaded
+  };
+
+  useEffect(() => {
+    let loadedImages = 0;
+
+    images.forEach((img) => {
+      const image = new Image();
+      image.src = img;
+      image.onload = () => {
+        loadedImages++;
+        if (loadedImages === images.length) {
+          handleImageLoad();
+        }
+      };
+    });
+
+    // Check if all images are already loaded
+    if (images.every(img => img.complete)) {
+      handleImageLoad();
+    }
+  }, []);
+
   const settings = {
     dots: true,
     infinite: true,
-    speed: 1700, // Adjust this value for smoother transitions
+    speed: 1700,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000, 
+    autoplaySpeed: 3000,
   };
 
   return (
@@ -46,14 +71,17 @@ const Carousel = ({ children }) => {
     >
       <div className="carousel-overlay" />
       {children}
-      <Slider {...settings}>
-        {images.map((img, index) => (
-          <div key={index}>
-            <img src={img} alt={`Slide ${index + 1}`} />
-          </div>
-        ))}
-      </Slider>
-
+      {!imagesLoaded ? (
+        <CircularProgress sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }} />
+      ) : (
+        <Slider {...settings}>
+          {images.map((img, index) => (
+            <div key={index}>
+              <img src={img} alt={`Slide ${index + 1}`} />
+            </div>
+          ))}
+        </Slider>
+      )}
     </Box>
   );
 };
