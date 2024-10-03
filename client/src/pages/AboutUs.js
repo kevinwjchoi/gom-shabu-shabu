@@ -17,7 +17,7 @@ const AboutUs = () => {
                 <div className="overlay" />
 
                 <Box className="content">
-                    <Typography variant="h1" sx={{ fontSize: { xs: '2rem', md: '3rem' } }}>
+                    <Typography variant="h1" sx={{ fontSize: { xs: '2rem', md: '3rem' }, textAlign: 'center' }}>
                         ABOUT US
                     </Typography>
                     <Typography 
@@ -67,12 +67,11 @@ const AboutUs = () => {
                         <Box
                             sx={{
                                 backgroundColor: 'rgba(65, 64, 64, 0.5)', 
-                                borderRadius: '12px', 
-                                padding: { xs: 2, md: 3 }, // Adjusted padding
-                                mt: 4,
-                                maxWidth: '90%', // Center on mobile
-                                mx: 'auto', // Center the box
-                                boxShadow: 2,
+                                borderRadius: '12px', // Rounded corners
+                                padding: 3, // Padding inside the box
+                                mt: 4, // Margin top to separate from the heading
+                                maxWidth: '700px', // Maximum width
+                                boxShadow: 2, // Optional shadow for depth
                             }}
                         >
                             <Typography 
@@ -176,12 +175,11 @@ const AboutUs = () => {
                         <Box
                             sx={{
                                 backgroundColor: 'rgba(65, 64, 64, 0.5)', 
-                                borderRadius: '12px', 
-                                padding: { xs: 2, md: 3 }, // Adjusted padding
-                                mt: 4,
-                                maxWidth: '90%', // Center on mobile
-                                mx: 'auto', // Center the box
-                                boxShadow: 2,
+                                borderRadius: '12px', // Rounded corners
+                                padding: 3, // Padding inside the box
+                                mt: 4, // Margin top to separate from the heading
+                                maxWidth: '700px', // Maximum width
+                                boxShadow: 2, // Optional shadow for depth
                             }}
                         >
                             <Typography 
