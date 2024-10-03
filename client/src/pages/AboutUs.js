@@ -17,7 +17,7 @@ const AboutUs = () => {
                 <div className="overlay" />
 
                 <Box className="content">
-                    <Typography variant="h1" sx={{ fontSize: { xs: '2rem', md: '3rem' }, textAlign: 'center' }}>
+                    <Typography variant="h1" sx={{ fontSize: { xs: '2rem', md: '3rem' } }}>
                         ABOUT US
                     </Typography>
                     <Typography 
@@ -25,7 +25,7 @@ const AboutUs = () => {
                         sx={{ 
                             mt: 2, 
                             fontSize: { xs: '1rem', md: '1.25rem' }, 
-                            maxWidth: '700px', // Allow more space on mobile
+                            maxWidth: '90%', // Allow more space on mobile
                             mx: 'auto', // Center the text
                             textAlign: 'center',
                             lineHeight: 1.7 
