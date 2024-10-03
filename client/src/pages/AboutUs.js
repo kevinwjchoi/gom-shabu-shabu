@@ -25,7 +25,7 @@ const AboutUs = () => {
                         sx={{ 
                             mt: 2, 
                             fontSize: { xs: '1rem', md: '1.25rem' }, 
-                            maxWidth: '90%', // Allow more space on mobile
+                            maxWidth: '700px', // Allow more space on mobile
                             mx: 'auto', // Center the text
                             textAlign: 'center',
                             lineHeight: 1.7 
@@ -59,7 +59,7 @@ const AboutUs = () => {
                         backgroundColor: '#222222',
                     }}
                 >
-
+                    <div className="background-overlay" />
                     <Box className="content-with-background" sx={{ zIndex: 1 }}>
                         <Typography variant="h1" sx={{ color: 'white', mt: 2, fontSize: { xs: '2rem', md: '3rem' } }}>
                             WHAT WE OFFER
@@ -168,7 +168,7 @@ const AboutUs = () => {
                         backgroundColor: '#222222',
                     }}
                 >
-
+                    <div className="background-overlay" />
                     <Box className="content-with-background" sx={{ zIndex: 1 }}>
                         <Typography variant="h1" sx={{ color: 'white', fontSize: { xs: '2rem', md: '3rem' } }}>
                             JOIN US
