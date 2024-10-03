@@ -57,6 +57,7 @@ const AboutUs = () => {
                         justifyContent: 'flex-start',
                         alignItems: 'flex-start',
                         backgroundColor: '#222222',
+                        position: 'relative',
                     }}
                 >
                     <div className="background-overlay" />
@@ -165,6 +166,8 @@ const AboutUs = () => {
                         justifyContent: 'center',
                         alignItems: 'flex-start',
                         backgroundColor: '#222222',
+                        position: 'relative',
+
                     }}
                 >
                     <div className="background-overlay" />
