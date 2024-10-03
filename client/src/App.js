@@ -11,7 +11,7 @@ import Location from './pages/Location';
 import './App.css';
 import './styles/Layout.css';
 
-const AppRoutes = ({ restaurantAddress, restaurantLocation , fetchRestaurantAddress}) => {
+const AppRoutes = ({ restaurantAddress, restaurantLocation, fetchRestaurantAddress }) => {
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/home" />} />
