@@ -3,15 +3,16 @@ import { AppBar, Toolbar, Typography, IconButton, Button, Drawer, List, ListItem
 import MenuIcon from '@mui/icons-material/Menu';
 import InstagramLogo from '../images/instagram.svg';
 import YelpLogo from '../images/yelp.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import '../styles/Layout.css';
 import gomlogo from '../images/gomlogo.png';
-import gomlogocolor from '../images/gomlogocolor.png';
 import QRCode from '../images/Gom_Shabu_Full_Menu.png';
 import { useTheme } from '@mui/material/styles';
 
 const Layout = ({ children }) => {
     const [drawerOpen, setDrawerOpen] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
     const theme = useTheme();
 
     const toggleDrawer = (open) => (event) => {
@@ -19,6 +20,13 @@ const Layout = ({ children }) => {
             return;
         }
         setDrawerOpen(open);
+    };
+
+    const handleNavigation = (path) => {
+        if (location.pathname !== path) { // Check if current path is not the target path
+            navigate(path);
+        }
+        toggleDrawer(false)(); // Close the drawer
     };
 
     return (
@@ -32,16 +40,16 @@ const Layout = ({ children }) => {
                         <Box component="img" src={gomlogo} alt="Gom Shabu" sx={{ height: 70, mr: 2 }} />
                     </Link>
                     <Box sx={{ flexGrow: 1 }} />
-                    <Button color="inherit" component={Link} to="/home" sx={{ mr: 5, fontSize: '1rem' }}>
+                    <Button color="inherit" onClick={() => handleNavigation('/home')} sx={{ mr: 5, fontSize: '1rem' }}>
                         Home
                     </Button>
-                    <Button color="inherit" component={Link} to="/aboutus" sx={{ mr: 5, fontSize: '1rem' }}>
+                    <Button color="inherit" onClick={() => handleNavigation('/aboutus')} sx={{ mr: 5, fontSize: '1rem' }}>
                         About Us
                     </Button>
-                    <Button color="inherit" component={Link} to="/menu" sx={{ mr: 5, fontSize: '1rem' }}>
+                    <Button color="inherit" onClick={() => handleNavigation('/menu')} sx={{ mr: 5, fontSize: '1rem' }}>
                         Menu
                     </Button>
-                    <Button color="inherit" component={Link} to="/locations" sx={{ mr: 5, fontSize: '1rem' }}>
+                    <Button color="inherit" onClick={() => handleNavigation('/locations')} sx={{ mr: 5, fontSize: '1rem' }}>
                         Locations
                     </Button>
                 </Toolbar>
@@ -54,7 +62,7 @@ const Layout = ({ children }) => {
                 sx={{
                     '& .MuiDrawer-paper': {
                         width: 180,
-                        backgroundColor: theme.palette.primary.main, // Use theme color for background
+                        backgroundColor: theme.palette.primary.main,
                     },
                 }}
             >
@@ -66,30 +74,19 @@ const Layout = ({ children }) => {
                         height: '100%',
                     }}
                 >
-                    {/* Logo at the top of the drawer */}
                     <Link to="/home" className="drawer-link" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 10 }}>
-                        <Box component="img" src={gomlogo} alt="Gom Shabu" sx={{ height:100 }} />
+                        <Box component="img" src={gomlogo} alt="Gom Shabu" sx={{ height: 100 }} />
                     </Link>
-
-                    {/* Drawer links */}
                     <List>
-                        <ListItem button component={Link} to="/home" onClick={toggleDrawer(false)} className="drawer-button">
-                            <ListItemText primary={<span className="drawer-link">Home</span>} />
-                        </ListItem>
-                        <ListItem button component={Link} to="/aboutus" onClick={toggleDrawer(false)} className="drawer-button">
-                            <ListItemText primary={<span className="drawer-link">About Us</span>} />
-                        </ListItem>
-                        <ListItem button component={Link} to="/menu" onClick={toggleDrawer(false)} className="drawer-button">
-                            <ListItemText primary={<span className="drawer-link">Menu</span>} />
-                        </ListItem>
-                        <ListItem button component={Link} to="/locations" onClick={toggleDrawer(false)} className="drawer-button">
-                            <ListItemText primary={<span className="drawer-link">Locations</span>} />
-                        </ListItem>
+                        {['home', 'aboutus', 'menu', 'locations'].map((route) => (
+                            <ListItem button key={route} onClick={() => handleNavigation(`/${route}`)}>
+                                <ListItemText primary={route.charAt(0).toUpperCase() + route.slice(1).replace('us', ' Us')} />
+                            </ListItem>
+                        ))}
                     </List>
                 </Box>
             </Drawer>
 
-            {/* Main content area with flex-grow */}
             <main style={{ flex: 1 }}>
                 {children}
             </main>
@@ -103,7 +100,7 @@ const Layout = ({ children }) => {
                     padding: 2,
                     textAlign: 'center',
                     width: '100%',
-                    mt: 'auto', // Ensure footer sticks to bottom if content is less
+                    mt: 'auto',
                 }}
             >
                 <Grid container spacing={2} alignItems="center" justifyContent="center">
