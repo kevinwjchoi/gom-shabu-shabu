@@ -59,7 +59,6 @@ const AboutUs = () => {
                         backgroundColor: '#222222',
                     }}
                 >
-                    <div className="background-overlay" />
                     <Box className="content-with-background" sx={{ zIndex: 1 }}>
                         <Typography variant="h1" sx={{ color: 'white', mt: 2, fontSize: { xs: '2rem', md: '3rem' } }}>
                             WHAT WE OFFER
@@ -167,7 +166,6 @@ const AboutUs = () => {
                         backgroundColor: '#222222',
                     }}
                 >
-                    <div className="background-overlay" />
                     <Box className="content-with-background" sx={{ zIndex: 1 }}>
                         <Typography variant="h1" sx={{ color: 'white', fontSize: { xs: '2rem', md: '3rem' } }}>
                             JOIN US
