@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, Typography, IconButton, Button, Drawer, List, ListItem, ListItemText, Box, Grid } from '@mui/material';
+import { AppBar, Toolbar, Typography, IconButton, Button, Drawer, List, ListItem, ListItemText, Box, Grid, useMediaQuery } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import InstagramLogo from '../images/instagram.svg';
 import YelpLogo from '../images/yelp.svg';
@@ -14,6 +14,7 @@ const Layout = ({ children }) => {
     const navigate = useNavigate();
     const location = useLocation();
     const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // Check if the screen size is mobile
 
     const toggleDrawer = (open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -36,22 +37,24 @@ const Layout = ({ children }) => {
                     <IconButton edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer(true)} sx={{ mr: 4 }}>
                         <MenuIcon />
                     </IconButton>
-                    <Link to="/home" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-                        <Box component="img" src={gomlogo} alt="Gom Shabu" sx={{ height: 70, mr: 2 }} />
-                    </Link>
-                    <Box sx={{ flexGrow: 1 }} />
-                    <Button color="inherit" onClick={() => handleNavigation('/home')} sx={{ mr: 5, fontSize: '1rem' }}>
-                        Home
-                    </Button>
-                    <Button color="inherit" onClick={() => handleNavigation('/aboutus')} sx={{ mr: 5, fontSize: '1rem' }}>
-                        About Us
-                    </Button>
-                    <Button color="inherit" onClick={() => handleNavigation('/menu')} sx={{ mr: 5, fontSize: '1rem' }}>
-                        Menu
-                    </Button>
-                    <Button color="inherit" onClick={() => handleNavigation('/locations')} sx={{ mr: 5, fontSize: '1rem' }}>
-                        Locations
-                    </Button>
+                    {!isMobile && (
+                        <>
+                            <Link to="/home" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+                                <Box component="img" src={gomlogo} alt="Gom Shabu" sx={{ height: 70, mr: 2 }} />
+                            </Link>
+                            <Box sx={{ flexGrow: 1 }} />
+                            {['Home', 'About Us', 'Menu', 'Locations'].map((item, index) => (
+                                <Button 
+                                    key={index} 
+                                    color="inherit" 
+                                    onClick={() => handleNavigation(item.toLowerCase().replace(' ', ''))} 
+                                    sx={{ mr: 5, fontSize: '1rem' }}
+                                >
+                                    {item}
+                                </Button>
+                            ))}
+                        </>
+                    )}
                 </Toolbar>
             </AppBar>
 
@@ -101,24 +104,28 @@ const Layout = ({ children }) => {
                     textAlign: 'center',
                     width: '100%',
                     mt: 'auto',
+                    display: 'flex',
+                    flexDirection: { xs: 'column', md: 'row' }, // Stack vertically on mobile
+                    justifyContent: 'center',
+                    alignItems: 'center',
                 }}
             >
                 <Grid container spacing={2} alignItems="center" justifyContent="center">
-                    <Grid item xs={2} sx={{ display: 'flex' }}>
+                    <Grid item xs={12} md={2} sx={{ display: 'flex', justifyContent: 'center' }}>
                         <Box component="img" src={gomlogo} alt="Gom Shabu" sx={{ height: 100 }} />
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item xs={12} md={2} sx={{ textAlign: { xs: 'center', md: 'left' } }}>
                         <Typography variant="h6">Contact us</Typography>
                         <Typography variant="body2">support@gom-shabu.com</Typography>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item xs={12} md={2} sx={{ display: 'flex', justifyContent: 'center' }}>
                         <Box component="img" src={QRCode} alt="QR Code" sx={{ width: 100, height: 100, mt: 1 }} />
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item xs={12} md={2} sx={{ textAlign: { xs: 'center', md: 'left' } }}>
                         <Typography variant="h6">Annandale</Typography>
                         <Typography variant="body2">4355 John Marr Dr <br /> Annandale, VA 22003</Typography>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item xs={12} md={2} sx={{ textAlign: { xs: 'center', md: 'left' } }}>
                         <Typography variant="h6">Check us out</Typography>
                         <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                             <IconButton
@@ -141,7 +148,7 @@ const Layout = ({ children }) => {
                             </IconButton>
                         </Box>
                     </Grid>
-                    <Grid container spacing={2} alignItems="center" justifyContent="center" sx={{ mt: 1 }}>
+                    <Grid container spacing={2} alignItems="center" justifyContent="center" sx={{ mt: 1, width: '100%' }}>
                         <Box>
                             <Typography variant="caption">
                                 &copy; {new Date().getFullYear()} Gom Shabu Annandale. All rights reserved.
