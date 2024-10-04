@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import Carousel from '../components/Carousel';
 import '../App.css';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useMediaQuery } from '@mui/material';
 
 const Home = () => {
   const [imagesLoaded, setImagesLoaded] = useState(false);
+  const isMobile = useMediaQuery(theme => theme.breakpoints.down('sm'));
 
   const handleCarouselLoad = () => {
     setImagesLoaded(true);
@@ -13,28 +14,41 @@ const Home = () => {
   return (
     <main>
       <Carousel onLoad={handleCarouselLoad}>
-        <Typography
-          className="carousel-title-content fade-in"
-          variant="h6"
+        <Box
           sx={{
-            fontWeight: 100,
-            fontSize: { xs: '3rem', md: '6rem' },
-            color: 'white',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100%', // Ensure it takes full height of the carousel
+            padding: { xs: 2, md: 4 }, // Add padding for mobile
           }}
         >
-          Gom Shabu
-        </Typography>
-        <Typography
-          className="carousel-content fade-in"
-          variant="h6"
-          sx={{
-            fontWeight: 100,
-            fontSize: { xs: '1.5rem', md: '2.25rem' },
-            color: 'white'
-          }}
-        >
-          a modern twist to traditional hot pot
-        </Typography>
+          <Typography
+            className="carousel-title-content fade-in"
+            variant="h6"
+            sx={{
+              fontWeight: 100,
+              fontSize: { xs: '3rem', md: '6rem' },
+              color: 'white',
+              textAlign: 'center',
+            }}
+          >
+            Gom Shabu
+          </Typography>
+          <Typography
+            className="carousel-content fade-in"
+            variant="h6"
+            sx={{
+              fontWeight: 100,
+              fontSize: { xs: '1.5rem', md: '2.25rem' },
+              color: 'white',
+              textAlign: 'center',
+            }}
+          >
+            a modern twist to traditional hot pot
+          </Typography>
+        </Box>
       </Carousel>
 
       <Box
