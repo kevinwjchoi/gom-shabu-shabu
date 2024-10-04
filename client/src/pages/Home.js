@@ -5,7 +5,7 @@ import { Box, Typography, useMediaQuery } from '@mui/material';
 
 const Home = () => {
   const [imagesLoaded, setImagesLoaded] = useState(false);
-  const isMobile = useMediaQuery(theme => theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery((theme) => theme.breakpoints.down('sm'));
 
   const handleCarouselLoad = () => {
     setImagesLoaded(true);
@@ -17,11 +17,12 @@ const Home = () => {
         <Box
           sx={{
             display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
+            flexDirection: isMobile ? 'column' : 'row',
             alignItems: 'center',
+            justifyContent: 'center',
             height: '100%', // Ensure it takes full height of the carousel
-            padding: { xs: 2, md: 4 }, // Add padding for mobile
+            padding: 2,
+            textAlign: 'center', // Center text
           }}
         >
           <Typography
@@ -31,7 +32,7 @@ const Home = () => {
               fontWeight: 100,
               fontSize: { xs: '3rem', md: '6rem' },
               color: 'white',
-              textAlign: 'center',
+              mb: isMobile ? 1 : 0, // Add margin bottom on mobile
             }}
           >
             Gom Shabu
@@ -43,7 +44,6 @@ const Home = () => {
               fontWeight: 100,
               fontSize: { xs: '1.5rem', md: '2.25rem' },
               color: 'white',
-              textAlign: 'center',
             }}
           >
             a modern twist to traditional hot pot
