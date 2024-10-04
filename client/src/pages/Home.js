@@ -1,64 +1,43 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Carousel from '../components/Carousel';
-import '../App.css';
-import { Typography, useMediaQuery, Box } from '@mui/material';
+import '../App.css'; // Ensure this file imports the CSS
+import { Box, Typography } from '@mui/material';
 
 const Home = () => {
-  const [imagesLoaded, setImagesLoaded] = useState(false);
-  const isMobile = useMediaQuery((theme) => theme.breakpoints.down('sm'));
-
-  const handleCarouselLoad = () => {
-    setImagesLoaded(true);
-  };
-
   return (
     <main>
-      <Carousel onLoad={handleCarouselLoad}>
-        {/* Directly add Typography elements to the Carousel */}
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            height: '100%', // Ensure it takes full height of the carousel
-            textAlign: 'center', // Center text
-            padding: '16px', // You can adjust this as needed
+      <Carousel>
+        <Typography
+          className="carousel-title-content fade-in"
+          variant="h6"
+          sx={{
+            fontWeight: 100,
+            fontSize: { xs: '3rem', md: '6rem' }, // Responsive font size
+            color: 'white',
           }}
         >
-          <Typography
-            className="carousel-title-content fade-in"
-            variant="h6"
-            sx={{
-              fontWeight: 100,
-              fontSize: { xs: '3rem', md: '6rem' },
-              color: 'white',
-              mb: isMobile ? 1 : 0, // Add margin bottom on mobile
-            }}
-          >
-            Gom Shabu
-          </Typography>
-          <Typography
-            className="carousel-content fade-in"
-            variant="h6"
-            sx={{
-              fontWeight: 100,
-              fontSize: { xs: '1.5rem', md: '2.25rem' },
-              color: 'white',
-            }}
-          >
-            a modern twist to traditional hot pot
-          </Typography>
-        </div>
+          Gom Shabu
+        </Typography>
+        <Typography
+          className="carousel-content fade-in"
+          variant="h6"
+          sx={{
+            fontWeight: 100,
+            fontSize: { xs: '1.5rem', md: '2.25rem' }, // Responsive font size
+            color: 'white'
+          }}
+        >
+          a modern twist to traditional hot pot
+        </Typography>
       </Carousel>
 
       <Box
         sx={{
-          padding: { xs: 4, md: 8 },
+          padding: { xs: 4, md: 8 }, // Responsive padding
           backgroundColor: '#4f5359',
           margin: '0 auto',
           maxWidth: '100%',
-          display: 'flex',
+          display: 'flex', // Use flexbox for centering
           flexDirection: 'column',
           alignItems: 'center',
         }}
@@ -67,9 +46,9 @@ const Home = () => {
           variant="h5"
           sx={{
             fontWeight: 300,
-            fontSize: { xs: '2rem', md: '3rem' },
+            fontSize: { xs: '2rem', md: '3rem' }, // Responsive font size
             color: 'white',
-            textAlign: 'center',
+            textAlign: 'center', // Center text on small screens
           }}
         >
           A JOURNEY INTO KOREAN HOT POT DELIGHT
@@ -78,10 +57,10 @@ const Home = () => {
           variant="h4"
           sx={{
             fontWeight: 200,
-            fontSize: { xs: '1rem', md: '1.25rem' },
+            fontSize: { xs: '1rem', md: '1.25rem' }, // Responsive font size
             color: 'white',
-            textAlign: 'center',
-            paddingTop: 2,
+            textAlign: 'center', // Center text on small screens
+            paddingTop: 2, // Add some spacing
           }}
         >
           Our menu features an extensive selection of premium meats, fresh vegetables, and a variety of noodles, allowing you to customize your hot pot to perfection. Whether you're a fan of tender beef, succulent pork, or fresh seafood, we have something to suit every taste.
