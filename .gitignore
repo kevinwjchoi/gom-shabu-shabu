@@ -20,6 +20,8 @@ server/__pycache__/
 # Environment variables
 /client/.env
 /server/.env
+client/.env
+server/.env
 
 # Miscellaneous
 .DS_Store
