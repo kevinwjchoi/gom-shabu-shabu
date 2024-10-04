@@ -12,8 +12,10 @@ const Home = () => {
           variant="h6"
           sx={{
             fontWeight: 100,
-            fontSize: { xs: '3rem', md: '6rem' }, // Responsive font size
+            fontSize: { xs: '2rem', md: '4rem' }, // Adjusted for mobile
             color: 'white',
+            textAlign: 'center', // Center text
+            padding: { xs: 2, md: 0 }, // Responsive padding
           }}
         >
           Gom Shabu
@@ -23,8 +25,11 @@ const Home = () => {
           variant="h6"
           sx={{
             fontWeight: 100,
-            fontSize: { xs: '1.5rem', md: '2.25rem' }, // Responsive font size
-            color: 'white'
+            fontSize: { xs: '1.2rem', md: '2rem' }, // Adjusted for mobile
+            color: 'white',
+            textAlign: 'center', // Center text
+            marginTop: 1, // Add some spacing between titles
+            padding: { xs: 1, md: 0 }, // Responsive padding
           }}
         >
           a modern twist to traditional hot pot
@@ -46,9 +51,10 @@ const Home = () => {
           variant="h5"
           sx={{
             fontWeight: 300,
-            fontSize: { xs: '2rem', md: '3rem' }, // Responsive font size
+            fontSize: { xs: '1.5rem', md: '2.5rem' }, // Responsive font size
             color: 'white',
             textAlign: 'center', // Center text on small screens
+            padding: { xs: 2, md: 0 }, // Responsive padding
           }}
         >
           A JOURNEY INTO KOREAN HOT POT DELIGHT
@@ -57,10 +63,11 @@ const Home = () => {
           variant="h4"
           sx={{
             fontWeight: 200,
-            fontSize: { xs: '1rem', md: '1.25rem' }, // Responsive font size
+            fontSize: { xs: '0.9rem', md: '1.25rem' }, // Responsive font size
             color: 'white',
             textAlign: 'center', // Center text on small screens
             paddingTop: 2, // Add some spacing
+            padding: { xs: 1, md: 0 }, // Responsive padding
           }}
         >
           Our menu features an extensive selection of premium meats, fresh vegetables, and a variety of noodles, allowing you to customize your hot pot to perfection. Whether you're a fan of tender beef, succulent pork, or fresh seafood, we have something to suit every taste.
