@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Carousel from '../components/Carousel';
 import '../App.css';
-import { Typography, useMediaQuery } from '@mui/material';
+import { Typography, useMediaQuery, Box } from '@mui/material';
 
 const Home = () => {
   const [imagesLoaded, setImagesLoaded] = useState(false);
