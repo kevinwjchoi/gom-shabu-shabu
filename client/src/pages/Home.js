@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Carousel from '../components/Carousel';
 import '../App.css';
-import { Box, Typography, useMediaQuery } from '@mui/material';
+import { Typography, useMediaQuery } from '@mui/material';
 
 const Home = () => {
   const [imagesLoaded, setImagesLoaded] = useState(false);
@@ -14,15 +14,16 @@ const Home = () => {
   return (
     <main>
       <Carousel onLoad={handleCarouselLoad}>
-        <Box
-          sx={{
+        {/* Directly add Typography elements to the Carousel */}
+        <div
+          style={{
             display: 'flex',
-            flexDirection: isMobile ? 'column' : 'row',
+            flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
             height: '100%', // Ensure it takes full height of the carousel
-            padding: 2,
             textAlign: 'center', // Center text
+            padding: '16px', // You can adjust this as needed
           }}
         >
           <Typography
@@ -48,7 +49,7 @@ const Home = () => {
           >
             a modern twist to traditional hot pot
           </Typography>
-        </Box>
+        </div>
       </Carousel>
 
       <Box
