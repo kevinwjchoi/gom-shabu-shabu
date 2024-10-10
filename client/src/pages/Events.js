@@ -13,6 +13,7 @@ import {
 } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -68,7 +69,40 @@ const EventPage = () => {
           </Grid>
         </Paper>
 
+        <Box mt={4}>
+          <Typography variant="h5" align="center" gutterBottom>
+            Check Out Our Ambiance
+          </Typography>
+          <Grid container spacing={2} justifyContent="center">
+            <Grid item xs={12} sm={6}>
+              <Card>
+                <CardMedia
+                  component="img"
+                  height="200"
+                  image="../images/Group3.png" 
+                  alt="Table Setup"
+                />
+              </Card>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Card>
+                <CardMedia
+                  component="img"
+                  height="200"
+                  image="../images/Group1.png" 
+                  alt="Event Setup"
+                />
+              </Card>
+            </Grid>
+          </Grid>
+        </Box>
 
+        <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar}>
+          <SnackbarContent
+            message="For more details, please call us!"
+            style={{ backgroundColor: '#4caf50' }}
+          />
+        </Snackbar>
       </Container>
     </ThemeProvider>
   );
