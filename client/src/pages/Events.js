@@ -12,6 +12,8 @@ import {
   CardMedia,
 } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import group1 from '../images/Group1.png'
+import group3 from '../images/Group3.png'
 
 
 const theme = createTheme({
@@ -79,7 +81,7 @@ const EventPage = () => {
                 <CardMedia
                   component="img"
                   height="200"
-                  image="../images/Group3.png" 
+                  image={group3}
                   alt="Table Setup"
                 />
               </Card>
@@ -89,7 +91,7 @@ const EventPage = () => {
                 <CardMedia
                   component="img"
                   height="200"
-                  image="../images/Group1.png" 
+                  image={group1}
                   alt="Event Setup"
                 />
               </Card>
