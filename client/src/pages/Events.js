@@ -39,7 +39,38 @@ const EventPage = () => {
   };
 
   return (
+    <ThemeProvider theme={theme}>
+      <Container>
+        <Typography variant="h4" align="center" gutterBottom>
+          Celebrate Special Events at Gom Shabu
+        </Typography>
+        <Paper elevation={3} style={{ padding: '20px', backgroundColor: '#F6F7EB' }}>
+          <Typography variant="h6" gutterBottom>
+            Perfect for Birthday Parties, Group Events, and Special Occasions!
+          </Typography>
+          <Typography paragraph>
+            Enjoy a complimentary meal (value of AYCE $34.99) for the birthday person! 
+            This offer is valid with a government-issued identification on the day of the birthday and must be part of a party of 2 or more.
+          </Typography>
+          <Typography paragraph>
+            To make a reservation, please call us at (703) 712-7417. We look forward to hosting your special event!
+          </Typography>
+          <Grid container spacing={2} justifyContent="center">
+            <Grid item>
+              <Button 
+                variant="contained" 
+                color="primary" 
+                onClick={handleSnackbarOpen}
+              >
+                Learn More
+              </Button>
+            </Grid>
+          </Grid>
+        </Paper>
 
+
+      </Container>
+    </ThemeProvider>
   );
 };
 
