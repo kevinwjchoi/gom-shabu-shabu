@@ -8,11 +8,9 @@ import {
   CssBaseline,
 } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import './App.css'; // Ensure your CSS file is imported
-
-// Import your images
-import groupImage1 from '../images/Group1.png'; // Replace with actual path
-import groupImage3 from '../images/Group3.png'; // Replace with actual path
+import '../App.css';
+import groupImage1 from '../images/Group1.png'; 
+import groupImage3 from '../images/Group3.png'; 
 
 const theme = createTheme({
   palette: {
