@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
 import Menu from './pages/Menu';
 import Location from './pages/Location';
+import Events from './pages/Events';
 
 import './App.css';
 import './styles/Layout.css';
@@ -22,6 +23,7 @@ const AppRoutes = ({ restaurantAddress, restaurantLocation, fetchRestaurantAddre
         path="/locations" 
         element={<Location address={restaurantAddress} location={restaurantLocation} fetchRestaurantAddress={fetchRestaurantAddress} />} 
       />
+      <Route path="/events" element={<Events />} />
     </Routes>
   );
 };

@@ -43,7 +43,7 @@ const Layout = ({ children }) => {
                                 <Box component="img" src={gomlogo} alt="Gom Shabu" sx={{ height: 70, mr: 2 }} />
                             </Link>
                             <Box sx={{ flexGrow: 1 }} />
-                            {['Home', 'About Us', 'Menu', 'Locations'].map((item, index) => (
+                            {['Home', 'About Us', 'Menu', 'Locations', 'Events'].map((item, index) => (
                                 <Button 
                                     key={index} 
                                     color="inherit" 
@@ -81,7 +81,7 @@ const Layout = ({ children }) => {
                         <Box component="img" src={gomlogo} alt="Gom Shabu" sx={{ height: 100 }} />
                     </Link>
                     <List>
-                        {['home', 'aboutus', 'menu', 'locations'].map((route) => (
+                        {['home', 'aboutus', 'menu', 'locations', 'events'].map((route) => (
                             <ListItem button key={route} onClick={() => handleNavigation(`/${route}`)}>
                                 <ListItemText primary={route.charAt(0).toUpperCase() + route.slice(1).replace('us', ' Us')} />
                             </ListItem>
