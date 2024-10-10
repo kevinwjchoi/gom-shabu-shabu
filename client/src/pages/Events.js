@@ -8,7 +8,11 @@ import {
   CssBaseline,
 } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import './App.css'; // Make sure to import your CSS file
+import './App.css'; // Ensure your CSS file is imported
+
+// Import your images
+import groupImage1 from '../images/Group1.png'; // Replace with actual path
+import groupImage3 from '../images/Group3.png'; // Replace with actual path
 
 const theme = createTheme({
   palette: {
@@ -24,13 +28,16 @@ const theme = createTheme({
   },
 });
 
-const EventPage = () => {
+const Events = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container>
-        {/* Background Overlay for Group3 */}
-        <Box className="event-page-background-overlay">
+        {/* First Background Overlay */}
+        <Box
+          className="event-page-background-overlay"
+          style={{ backgroundImage: `url(${groupImage1})` }}
+        >
           <Typography variant="h4" align="center" style={{ zIndex: 3, position: 'relative', color: '#fff', padding: '20px' }}>
             Celebrate Special Events at Gom Shabu
           </Typography>
@@ -39,17 +46,12 @@ const EventPage = () => {
           </Typography>
         </Box>
 
-        {/* First Image below the Background */}
-        <Box mt={4} style={{ position: 'relative', zIndex: 1 }}>
-          <Card>
-            <CardMedia
-              component="img"
-              height="200"
-              image="/path/to/group1.jpg" // Replace with actual path to group1 image
-              alt="Group Setup"
-            />
-          </Card>
-          <Typography variant="body1" align="center" style={{ margin: '20px 0' }}>
+        {/* Second Background Overlay */}
+        <Box
+          className="event-page-background-overlay"
+          style={{ backgroundImage: `url(${groupImage3})`, marginTop: '20px' }}
+        >
+          <Typography variant="body1" align="center" style={{ zIndex: 3, position: 'relative', color: '#fff', padding: '20px' }}>
             Enjoy a complimentary meal (value of AYCE $34.99) for the birthday person!
             This offer is valid with a government-issued identification on the day of the birthday and must be part of a party of 2 or more.
           </Typography>
@@ -59,4 +61,4 @@ const EventPage = () => {
   );
 };
 
-export default EventPage;
+export default Events;
