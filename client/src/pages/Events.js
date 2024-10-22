@@ -4,33 +4,44 @@ import {
   Typography,
   Box,
 } from '@mui/material';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import '../styles/Events.css'
-
-
+import '../styles/Events.css';
 
 const Events = () => {
-    return (
-        <div className="eventpage">
-            <div className="event-background">
-            <div className="eventpageoverlay">
-                <div className="content">
-                <h1>Special event coming up?</h1>
-                <p>Join us for an unforgettable culinary experience!</p>
-                </div>
-            </div>
-            </div>
-            <section className="event-section">
-            <h2>Event 1</h2>
-            <p>Description of Event 1.</p>
-            </section>
-            <section className="event-section">
-            <h2>Event 2</h2>
-            <p>Description of Event 2.</p>
-            </section>
-            {/* Add more sections as needed */}
+  return (
+    <div className="eventpage">
+      {/* First Background Section */}
+      <div className="event-background">
+        <div className="eventpageoverlay">
+          <Container>
+            <Box textAlign="center" py={5}>
+              <Typography variant="h2" gutterBottom>
+                Special event coming up?
+              </Typography>
+              <Typography variant="body1">
+                Join us for an unforgettable culinary experience!
+              </Typography>
+            </Box>
+          </Container>
         </div>
-        );
-    };
+      </div>
+
+      {/* Second Background Section */}
+      <div className="event-background-2">
+        <div className="eventpageoverlay">
+          <Container>
+            <Box textAlign="center" py={5}>
+              <Typography variant="h2" gutterBottom>
+                Don't Miss Out!
+              </Typography>
+              <Typography variant="body1">
+                Explore our exclusive menu for the event!
+              </Typography>
+            </Box>
+          </Container>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Events;
