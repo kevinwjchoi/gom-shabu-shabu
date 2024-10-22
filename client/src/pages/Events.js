@@ -7,7 +7,6 @@ import {
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import groupImage1 from '../images/Group1.png'; 
 import groupImage3 from '../images/Group3.png'; 
-import mobileImage from '../images/MobileImage.png'; // Import the mobile image
 
 
 
@@ -34,5 +33,5 @@ const Events = () => {
         </div>
         );
     };
-    
+
 export default Events;
