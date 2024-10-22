@@ -5,8 +5,7 @@ import {
   Box,
 } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import groupImage1 from '../images/Group1.png'; 
-import groupImage3 from '../images/Group3.png'; 
+import '../styles/Events.css'
 
 
 
@@ -16,7 +15,7 @@ const Events = () => {
             <div className="event-background">
             <div className="eventpageoverlay">
                 <div className="content">
-                <h1>Upcoming Events</h1>
+                <h1>Special event coming up?</h1>
                 <p>Join us for an unforgettable culinary experience!</p>
                 </div>
             </div>
