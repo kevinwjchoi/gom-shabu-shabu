@@ -1,7 +1,5 @@
 import React from 'react';
 import { Box, Typography, Grid } from '@mui/material';
-import interior4 from '../images/Group1.png'; // This image will be used in the context box
-import outside from '../images/outside.png';
 import location1 from '../images/location.png';
 import group3 from '../images/Group3.png'
 import GoogleMaps from '../components/GoogleMaps'; // Import the GoogleMaps component

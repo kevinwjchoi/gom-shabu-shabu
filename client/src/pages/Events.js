@@ -41,7 +41,7 @@ const Events = () => {
                 <Typography variant="h6"
                 sx={{
                     fontWeight: 100,
-                    fontSize: { xs: '2rem', md: '4rem' }, // Adjusted for mobile
+                    fontSize: { xs: '2rem', md: '3rem' }, // Adjusted for mobile
                     color: 'white',
                     textAlign: 'center', // Center text
                     padding: { xs: 2, md: 0 }, // Responsive padding
@@ -49,27 +49,30 @@ const Events = () => {
                 >
                     Our long tables can accomodate a party of 12.
                 </Typography>
-                <Typography variant="body1">
+                <Typography variant="h6">
                     We also offer a closed off section for more private parties! 
                 </Typography>
             </Box>
           </Container>
-          <Box
-            sx={{
-            mt: 3,
-            padding: 2,
-            backgroundColor: '#f5f5f5',
-            borderRadius: 1,
-            textAlign: 'center',
-            }}
-          >
-            <Typography variant="h5" sx={{ mb: 2 }}>
-              Call us to make reservations
-            </Typography>
-            <Typography variant="body1">
-              Make sure to provide us with: Name, Date, Time, # of Guests, and Phone Number
-            </Typography>
-          </Box>
+          <Container>
+            <Box
+              sx={{
+              mt: 3,
+              padding: 2,
+              backgroundColor: '#f5f5f5',
+              borderRadius: 1,
+              textAlign: 'center',
+              }}
+            >
+              <Typography variant="h5" sx={{ mb: 2, color: 'black' }}>
+                Call us to make reservations
+              </Typography>
+              <Typography variant="body1" sx={{ mb: 2, color: 'black' }}>
+                Make sure to provide us with: Name, Date, Time, # of Guests, and Phone Number
+              </Typography>
+            </Box>
+          </Container>
+
         </div>
       </div>
     </div>
