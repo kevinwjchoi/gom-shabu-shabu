@@ -54,27 +54,26 @@ const Events = () => {
                 </Typography>
             </Box>
           </Container>
-          <Container>
-            <Box
-              sx={{
-              mt: 3,
-              padding: 2,
-              backgroundColor: '#f5f5f5',
-              borderRadius: 1,
-              textAlign: 'center',
-              }}
-            >
-              <Typography variant="h5" sx={{ mb: 2, color: 'black' }}>
-                Call us to make reservations
-              </Typography>
-              <Typography variant="body1" sx={{ mb: 2, color: 'black' }}>
-                Make sure to provide us with: Name, Date, Time, # of Guests, and Phone Number
-              </Typography>
-            </Box>
-          </Container>
-
         </div>
       </div>
+      <Container>
+        <Box
+          sx={{
+            mt: 3,
+            padding: 2,
+            backgroundColor: '#f5f5f5',
+            borderRadius: 1,
+            textAlign: 'center',
+          }}
+        >
+          <Typography variant="h5" sx={{ mb: 2, color: 'black' }}>
+            Call us to make reservations
+          </Typography>
+          <Typography variant="body1" sx={{ mb: 2, color: 'black' }}>
+            Make sure to provide us with: Name, Date, Time, # of Guests, and Phone Number
+          </Typography>
+        </Box>
+      </Container>
     </div>
   );
 };
