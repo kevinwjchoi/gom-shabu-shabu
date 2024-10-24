@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.ec963d72.css",
-    "main.js": "/static/js/main.fb2973f2.js",
+    "main.js": "/static/js/main.1676257d.js",
     "static/media/Group1.png": "/static/media/Group1.37e18485cc2ade726ff9.png",
     "static/media/Interior1.png": "/static/media/Interior1.c36835006a6365b8a4f1.png",
     "static/media/Veggie2.png": "/static/media/Veggie2.ad354cb2efd34f3c86d4.png",
@@ -12,7 +12,6 @@
     "static/media/Group3.png": "/static/media/Group3.069119e2a597d47fd1d2.png",
     "static/media/location.png": "/static/media/location.ea61711c3eddd0257873.png",
     "static/media/food3.jpeg": "/static/media/food3.b1644b88e402c5eced9c.jpeg",
-    "static/media/outside.png": "/static/media/outside.bf496561132c9f8710ed.png",
     "static/media/meat1.jpeg": "/static/media/meat1.8acd95125fab1b42f142.jpeg",
     "static/media/Gom_Shabu_Full_Menu.png": "/static/media/Gom_Shabu_Full_Menu.d85b3c7ea5aa2d25095b.png",
     "static/media/gomshabu_menu.jpeg": "/static/media/gomshabu_menu.6ab0489855aac1a1b1e7.jpeg",
@@ -26,10 +25,10 @@
     "static/media/yelp.svg": "/static/media/yelp.373583c3c5dfd171241a08f885556c0f.svg",
     "index.html": "/index.html",
     "main.ec963d72.css.map": "/static/css/main.ec963d72.css.map",
-    "main.fb2973f2.js.map": "/static/js/main.fb2973f2.js.map"
+    "main.1676257d.js.map": "/static/js/main.1676257d.js.map"
   },
   "entrypoints": [
     "static/css/main.ec963d72.css",
-    "static/js/main.fb2973f2.js"
+    "static/js/main.1676257d.js"
   ]
 }
