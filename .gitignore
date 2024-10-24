@@ -20,11 +20,8 @@ server/__pycache__/
 # Environment variables
 /client/.env
 /server/.env
-<<<<<<< HEAD
 client/.env
 server/.env
-=======
->>>>>>> heroku/main
 
 # Miscellaneous
 .DS_Store
