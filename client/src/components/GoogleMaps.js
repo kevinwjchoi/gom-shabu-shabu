@@ -5,6 +5,7 @@ const GoogleMaps = () => {
   const [location, setLocation] = useState(null);
   const [loading, setLoading] = useState(true);
   const [address, setAddress] = useState('4355 John Marr Dr, Annandale, VA 22003');
+  console.log("This is line 8: " + location)
 
   useEffect(() => {
     const fetchLocationData = async () => {
@@ -18,8 +19,10 @@ const GoogleMaps = () => {
             lat: result.geometry.location.lat,
             lng: result.geometry.location.lng,
           });
+          console.log(location)
         } else {
           console.error('Error fetching location:', data.error_message || 'No results found');
+          console.log(location)
         }
       } catch (error) {
         console.error('Error fetching data:', error);
