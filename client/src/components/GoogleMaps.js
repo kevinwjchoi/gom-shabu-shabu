@@ -34,14 +34,14 @@ const GoogleMaps = ({ address }) => {
     fetchLocationData();
   }, []);
 
-  if (loading) {
+  if (loading || !location) {
     return <div>Loading...</div>;
   }
-
+  
   return (
     <div style={{ height: '100vh', width: '100%' }}>
       <LoadScript
-        googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY} // You can keep this if you need it for styles or other Map features
+        googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
       >
         <GoogleMap
           mapContainerStyle={{ height: '100%', width: '100%' }}
@@ -49,26 +49,29 @@ const GoogleMaps = ({ address }) => {
           center={location}
         >
           {markerOffset && <Marker position={markerOffset} />}
-          <InfoWindow position={location}>
-            <div style={{ fontSize: '12px', color: '#000000' }}>
-              <h1>Gom Shabu</h1>
-              <div>
-                <p>{address || 'Loading address...'}</p>
-                <a
-                  href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ color: '#1a73e8' }}
-                >
-                  Get Directions
-                </a>
+          {location && (
+            <InfoWindow position={location}>
+              <div style={{ fontSize: '12px', color: '#000000' }}>
+                <h1>Gom Shabu</h1>
+                <div>
+                  <p>{address || 'Loading address...'}</p>
+                  <a
+                    href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: '#1a73e8' }}
+                  >
+                    Get Directions
+                  </a>
+                </div>
               </div>
-            </div>
-          </InfoWindow>
+            </InfoWindow>
+          )}
         </GoogleMap>
       </LoadScript>
     </div>
   );
+  
 };
 
 export default GoogleMaps;
