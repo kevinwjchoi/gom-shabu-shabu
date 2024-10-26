@@ -25,13 +25,17 @@ app = Flask(__name__, static_folder='../client/build/', static_url_path='')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', os.urandom(24).hex())
+
 # Log the static folder path
 logger.debug(f"Static folder path: {app.static_folder}")
+
 # Initialize extensions
 db.init_app(app)
 api = Api(app)
+
 # Enable CORS for the API
 CORS(app, resources={r"/api/*": {"origins": "*"}})
+
 # Register API resources
 api.add_resource(PlaceSearch, '/api/place-search', endpoint='api/place-search')
 api.add_resource(GomShabuSearch, '/api/gom-shabu-search', endpoint='api/gom-shabu-search')
