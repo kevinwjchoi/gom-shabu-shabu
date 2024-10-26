@@ -2,39 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { GoogleMap, LoadScript, InfoWindow, Marker } from '@react-google-maps/api';
 
 const GoogleMaps = () => {
-  const [location, setLocation] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [address, setAddress] = useState('4355 John Marr Dr, Annandale, VA 22003');
-  console.log("This is line 8: " + location)
+  const [location, setLocation] = useState({ lat: 38.83058942111869, lng: -77.18825085234303 });
+  const [loading, setLoading] = useState(false);
+  const [address] = useState('4355 John Marr Dr, Annandale, VA 22003');
 
   useEffect(() => {
-    const fetchLocationData = async () => {
-      try {
-        const response = await fetch(`/api/gom-shabu-search`);
-        const data = await response.json();
-        
-        if (data.status === 'OK' && data.results.length > 0) {
-          const result = data.results[0];
-          setLocation({
-            lat: result.geometry.location.lat,
-            lng: result.geometry.location.lng,
-          });
-          console.log(location)
-        } else {
-          console.error('Error fetching location:', data.error_message || 'No results found');
-          console.log(location)
-        }
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchLocationData();
+    // Simulating loading state, you can remove this if not needed
+    setLoading(false);
   }, []);
 
-  if (loading || !location) {
+  if (loading) {
     return <div>Loading...</div>;
   }
   
