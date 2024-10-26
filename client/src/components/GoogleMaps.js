@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { GoogleMap, LoadScript, InfoWindow, Marker } from '@react-google-maps/api';
 
-const GoogleMaps = ({ address }) => {
+const GoogleMaps = () => {
   const [location, setLocation] = useState(null);
   const [loading, setLoading] = useState(true);
-  const markerOffset = location ? {
-    lat: location.lat - 0.00021, // Offset latitude
-    lng: location.lng // Keep the longitude the same
-  } : null;
+  const [address, setAddress] = useState('4355 John Marr Dr, Annandale, VA 22003');
 
   useEffect(() => {
     const fetchLocationData = async () => {
@@ -48,30 +45,27 @@ const GoogleMaps = ({ address }) => {
           zoom={18}
           center={location}
         >
-          {markerOffset && <Marker position={markerOffset} />}
-          {location && (
-            <InfoWindow position={location}>
-              <div style={{ fontSize: '12px', color: '#000000' }}>
-                <h1>Gom Shabu</h1>
-                <div>
-                  <p>{address || 'Loading address...'}</p>
-                  <a
-                    href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ color: '#1a73e8' }}
-                  >
-                    Get Directions
-                  </a>
-                </div>
+          <Marker position={location} />
+          <InfoWindow position={location}>
+            <div style={{ fontSize: '12px', color: '#000000' }}>
+              <h1>Gom Shabu</h1>
+              <div>
+                <p>{address}</p>
+                <a
+                  href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: '#1a73e8' }}
+                >
+                  Get Directions
+                </a>
               </div>
-            </InfoWindow>
-          )}
+            </div>
+          </InfoWindow>
         </GoogleMap>
       </LoadScript>
     </div>
   );
-  
 };
 
 export default GoogleMaps;
