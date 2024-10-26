@@ -38,6 +38,7 @@ class GomShabuSearch(Resource):
 
         # Ensure you have the correct API key
         api_key = os.getenv('GOOGLE_MAPS_API_KEY')
+        
         if not api_key:
             return {'error': 'API key is missing from environment variables'}, 500
 
