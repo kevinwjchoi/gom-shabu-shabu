@@ -15,15 +15,14 @@ const GoogleMaps = ({ address }) => {
         const response = await fetch(`/api/gom-shabu-search`);
         const data = await response.json();
         
-        if (data.status === 'OK') {
-          // Assuming you want the first result's location
+        if (data.status === 'OK' && data.results.length > 0) {
           const result = data.results[0];
           setLocation({
             lat: result.geometry.location.lat,
             lng: result.geometry.location.lng,
           });
         } else {
-          console.error('Error fetching location:', data.error_message);
+          console.error('Error fetching location:', data.error_message || 'No results found');
         }
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -42,7 +41,7 @@ const GoogleMaps = ({ address }) => {
   return (
     <div style={{ height: '100vh', width: '100%' }}>
       <LoadScript
-        googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY} // Optional: Use it only for Map styling, not for the search
+        googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY} // You can keep this if you need it for styles or other Map features
       >
         <GoogleMap
           mapContainerStyle={{ height: '100%', width: '100%' }}
