@@ -14,7 +14,7 @@ const GoogleMaps = () => {
   if (loading) {
     return <div>Loading...</div>;
   }
-  
+  console.log("testing")
   return (
     <div style={{ height: '100vh', width: '100%' }}>
       <LoadScript
